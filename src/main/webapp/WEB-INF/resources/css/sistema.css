@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+* {
+    font-family: Arial !important;
+    font-size: 13px;
+}
+
+
+/*
+** Regla CSS que ayuda a obtener una mejor apariencia de las tablas contenidas en otros componentes.
+*/
+.ui-panel .ui-panel-content {
+    padding: 5px 0px !important;
+}
+/*
+** Centrar texto en tablas.
+*/
+.ui-datatable tbody td {
+    text-align: center !important;
+}
