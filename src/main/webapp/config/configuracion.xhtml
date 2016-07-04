@@ -9,8 +9,16 @@
 
     <ui:define name="titulo">Configuracion Inicial</ui:define>
     <ui:define name="cuerpo">
-
-
-
+        <h:outputLabel for="cadenaCombo"  value="Cadena(*):" />
+        <p:selectOneMenu label="Seleccione Clientes"
+                              id="cadenaCombo" required="true"
+                              value="#{configBean.selectedCadena}"
+                              filter="true"
+                              filterMatchMode="contains"
+        >
+            <f:selectItems value="#{configBean.cmbCadenas}" var="cadenaRecord"
+                           itemValue="#{cadenaRecord}" itemLabel="#{cadenaRecord.nombre}" />
+            
+        </p:selectOneMenu>
     </ui:define>
 </ui:composition>
