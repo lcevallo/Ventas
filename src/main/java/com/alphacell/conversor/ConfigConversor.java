@@ -48,7 +48,7 @@ public class ConfigConversor implements Converter{
         if (!(value instanceof Cadena)) {
             return null;
         }
-        String s = String.valueOf(((Cadena) value).getNombre());
+        String s = String.valueOf(((Cadena) value).getId());
         return s;
 	}
 }
