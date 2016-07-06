@@ -30,6 +30,7 @@
                 id="tableProductoDiccionario"
                 value="#{configBean.tblTmpProductoDiccionario}"
                 var="productoDiccRecord"
+                binding="#{table}"
                 scrollable="true"
                 paginatorPosition="bottom"
                 paginator="true"
@@ -42,6 +43,9 @@
                 emptyMessage="No existen datos para presentar"
                 editable="true"
         >
+            <p:column headerText="No">
+                #{table.rowIndex+1}
+            </p:column>
             <p:column headerText="Descripcion Cadena" filterBy="#{productoDiccRecord.producto}"
             filterMatchMode="contains"
             >
@@ -51,7 +55,7 @@
                 </f:facet>
 
                 <f:facet name="input">
-                    <h:outputText value="#{productoDiccRecord.producto}"/>
+                    <p:inputText value="#{productoDiccRecord.producto}"/>
                 </f:facet>
                </p:cellEditor>
             </p:column>
@@ -67,7 +71,7 @@
 
 
                 <f:facet name="input">
-                    <h:outputText value="#{productoDiccRecord.codDescripcion}"/>
+                    <p:inputText value="#{productoDiccRecord.codDescripcion}"/>
                 </f:facet>
 
                 </p:cellEditor>
