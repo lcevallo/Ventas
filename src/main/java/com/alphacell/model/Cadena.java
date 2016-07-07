@@ -6,16 +6,20 @@
 package com.alphacell.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,6 +33,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cadena.findById", query = "SELECT c FROM Cadena c WHERE c.id = :id"),
     @NamedQuery(name = "Cadena.findByNombre", query = "SELECT c FROM Cadena c WHERE c.nombre = :nombre")})
 public class Cadena implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkCadena")
+    private List<CadenaProducto> cadenaProductoList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -86,6 +93,15 @@ public class Cadena implements Serializable {
     @Override
     public String toString() {
         return "com.alphacell.model.Cadena[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public List<CadenaProducto> getCadenaProductoList() {
+        return cadenaProductoList;
+    }
+
+    public void setCadenaProductoList(List<CadenaProducto> cadenaProductoList) {
+        this.cadenaProductoList = cadenaProductoList;
     }
     
 }
