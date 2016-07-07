@@ -30,9 +30,9 @@
              <f:facet name="left">
                  <p:commandButton value="Nuevo" icon="ui-icon-document"
                                   action="#{configBean.prepararNuevoRegistro}"
-                                  process="@this" update="empresa-dialog"
-                                  oncomplete="PF('edicaoEmpresaDialog').show()">
-                     <p:resetInput target="empresa-dialog" />
+                                  process="@this" update="AddproductoDiccDialog"
+                                  oncomplete="PF('AddproductoDiccDialogWidget').show()">
+                     <p:resetInput target="AddproductoDiccDialog" />
                  </p:commandButton>
 
 					<span class="ui-separator">
@@ -40,17 +40,17 @@
             		</span>
 
                  <p:commandButton icon="ui-icon-pencil" title="Editar"
-                                  process="@this" update="empresa-dialog"
-                                  oncomplete="PF('edicaoEmpresaDialog').show()"
+                                  process="@this" update="AddproductoDiccDialog"
+                                  oncomplete="PF('AddproductoDiccDialogWidget').show()"
                                   disabled="#{configBean.tmpProductoDiccionarioSelected == null}">
-                     <p:resetInput target="empresa-dialog" />
+                     <p:resetInput target="AddproductoDiccDialog" />
 
                      <f:setPropertyActionListener value="#{configBean.tmpProductoDiccionarioSelected}"
-                                                  target="#{configBean.empresaEdicao}" />
+                                                  target="#{configBean.productoDiccionarioEdicion}" />
                  </p:commandButton>
 
-                 <p:commandButton icon="ui-icon-trash" title="Excluir"
-                                  disabled="#{gestaoEmpresasBean.empresaSelecionada == null}" />
+                 <p:commandButton icon="ui-icon-trash" title="Eliminar"
+                                  disabled="#{configBean.tmpProductoDiccionarioSelected == null}" />
 
                  <p:commandButton icon="ui-icon-arrowthick-1-s" title="Exportar para XLS" />
              </f:facet>
@@ -75,6 +75,10 @@
                 selection="#{configBean.tmpProductoDiccionarioSelected}"
                 selectionMode="single" rowKey="#{productoDiccRecord.id}"
         >
+            <p:ajax event="rowSelect" update=":configForm:toolbarConfig" />
+            <p:ajax event="rowUnselect" update=":configForm:toolbarConfig" />
+
+
             <p:column headerText="No">
                 #{table.rowIndex+1}
             </p:column>

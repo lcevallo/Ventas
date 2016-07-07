@@ -44,6 +44,8 @@ public class ConfigBean implements Serializable{
 
 	private TmpProductoDiccionario tmpProductoDiccionarioSelected;
 
+	private TmpProductoDiccionario tmpProductoDiccionarioEdicion;
+
 	private ProductoDiccionario productoDiccionarioEdicion;
 
     @Inject
@@ -70,8 +72,9 @@ public class ConfigBean implements Serializable{
 
 
 	public void prepararNuevoRegistro(){
-		this.productoDiccionarioEdicion= new ProductoDiccionario();
 
+		this.tmpProductoDiccionarioEdicion= new TmpProductoDiccionario();
+		
 	}
 
 	public void cargarTablaRelacionProductoDiccionario()
@@ -85,6 +88,9 @@ public class ConfigBean implements Serializable{
 
 	public void guardarNuevoRegistro()
 	{
+
+		this.productoDiccionarioEdicion= new ProductoDiccionario();
+
 
 		this.productoDiccionarioEdicion.setProductoDiccionarioPK(new ProductoDiccionarioPK(this.selectedCadenaProducto.getRecid(),this.selectedDiccionario.getId()) );
 
@@ -166,5 +172,13 @@ public class ConfigBean implements Serializable{
 
 	public void setProductoDiccionarioEdicion(ProductoDiccionario productoDiccionarioEdicion) {
 		this.productoDiccionarioEdicion = productoDiccionarioEdicion;
+	}
+
+	public TmpProductoDiccionario getTmpProductoDiccionarioEdicion() {
+		return tmpProductoDiccionarioEdicion;
+	}
+
+	public void setTmpProductoDiccionarioEdicion(TmpProductoDiccionario tmpProductoDiccionarioEdicion) {
+		this.tmpProductoDiccionarioEdicion = tmpProductoDiccionarioEdicion;
 	}
 }
