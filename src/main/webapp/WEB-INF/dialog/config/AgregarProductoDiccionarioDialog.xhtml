@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+>
+
+<h:body>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="sistema.css" />
+    </h:head>
+    <p:dialog header="Agregar Relacion Producto Diccionario" modal="true" showEffect="fade"
+              hideEffect="fade" widgetVar="AddproductoDiccDialogWidget" width="40%"
+              position="top" appendToBody="false" draggable="false"
+              resizable="true" id="AddproductoDiccDialog">
+
+        <h:form id="fmrAddproductoDicc">
+            <p:messages id="msgs-dialog" />
+            <p:defaultCommand target="guardar-button" scope="AddproductoDiccDialog" />
+
+            <h:panelGrid columns="2" id="panel-dialog">
+                <p:outputLabel value="Producto del Canal" for="cmbProductoDialog" />
+                <p:selectOneMenu
+                     id="cmbProductoDialog" required="true"
+                     value="#{configBean.selectedCadenaProducto}"
+                     filter="true"
+                     filterMatchMode="contains">
+                    <f:selectItem itemLabel="Seleccione un Producto del Canal" />
+                    <f:selectItems value="#{configBean.cmbCadenaProducto}" var="cadenaProductoRecordDialog"
+                                   itemValue="#{cadenaProductoRecordDialog}" itemLabel="#{cadenaProductoRecordDialog.producto}" />
+                </p:selectOneMenu>
+
+
+                <p:outputLabel value="Diccionario Alph" for="cmbDiccionarioDialog" />
+                <p:selectOneMenu
+                        id="cmbDiccionarioDialog" required="true"
+                        value="#{configBean.selectedDiccionario}"
+                        filter="true"
+                        filterMatchMode="contains">
+                    <f:selectItem itemLabel="Seleccione un elemento del Diccionario" />
+                    <f:selectItems value="#{configBean.cmbDiccionario}" var="diccionarioProductoRecordDialog"
+                                   itemValue="#{diccionarioProductoRecordDialog}" itemLabel="#{diccionarioProductoRecordDialog.codDescripcion}" />
+                </p:selectOneMenu>
+                <p:commandButton value="Guardar" id="guardar-button"
+                                 action="#{configBean.guardarNuevoRegistro}"
+                                 process="AddproductoDiccDialog" update="msgs-dialog painel-dialog"
+                                 oncomplete="if (!args.validationFailed) PF('AddproductoDiccDialogWidget').hide()" />
+            </h:panelGrid>
+
+
+        </h:form>
+    </p:dialog>
+</h:body>
+</html>

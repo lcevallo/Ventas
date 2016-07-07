@@ -11,6 +11,7 @@
     <ui:define name="cuerpo">
 
      <h:form id="configForm">
+         <p:messages id="msgs" />
         <h:outputLabel for="cadenaCombo"  value="Cadena(*):" />
         <p:selectOneMenu label="Seleccione Clientes"
                               id="cadenaCombo" required="true"
@@ -25,6 +26,36 @@
 
         </p:selectOneMenu>
 
+         <p:toolbar id="toolbarConfig">
+             <f:facet name="left">
+                 <p:commandButton value="Nuevo" icon="ui-icon-document"
+                                  action="#{configBean.prepararNuevoRegistro}"
+                                  process="@this" update="empresa-dialog"
+                                  oncomplete="PF('edicaoEmpresaDialog').show()">
+                     <p:resetInput target="empresa-dialog" />
+                 </p:commandButton>
+
+					<span class="ui-separator">
+						<span class="ui-icon ui-icon-grip-dotted-vertical" />
+            		</span>
+
+                 <p:commandButton icon="ui-icon-pencil" title="Editar"
+                                  process="@this" update="empresa-dialog"
+                                  oncomplete="PF('edicaoEmpresaDialog').show()"
+                                  disabled="#{configBean.tmpProductoDiccionarioSelected == null}">
+                     <p:resetInput target="empresa-dialog" />
+
+                     <f:setPropertyActionListener value="#{configBean.tmpProductoDiccionarioSelected}"
+                                                  target="#{configBean.empresaEdicao}" />
+                 </p:commandButton>
+
+                 <p:commandButton icon="ui-icon-trash" title="Excluir"
+                                  disabled="#{gestaoEmpresasBean.empresaSelecionada == null}" />
+
+                 <p:commandButton icon="ui-icon-arrowthick-1-s" title="Exportar para XLS" />
+             </f:facet>
+         </p:toolbar>
+
 
         <p:dataTable
                 id="tableProductoDiccionario"
@@ -35,53 +66,27 @@
                 paginatorPosition="bottom"
                 paginator="true"
                 style="margin-top: 10px"
-                rows="30"
+                rows="25"
                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                 currentPageReportTemplate="Pagina: ({currentPage} de {totalPages})"
                 rowsPerPageTemplate="5,15,25,30"
                 scrollRows="15"
                 emptyMessage="No existen datos para presentar"
-                editable="true"
+                selection="#{configBean.tmpProductoDiccionarioSelected}"
+                selectionMode="single" rowKey="#{productoDiccRecord.id}"
         >
             <p:column headerText="No">
                 #{table.rowIndex+1}
             </p:column>
             <p:column headerText="Descripcion Cadena" filterBy="#{productoDiccRecord.producto}"
-            filterMatchMode="contains"
-            >
-               <p:cellEditor>
-                <f:facet name="output">
-                    <h:outputText value="#{productoDiccRecord.producto}"/>
-                </f:facet>
-
-                <f:facet name="input">
-                    <p:inputText value="#{productoDiccRecord.producto}"/>
-                </f:facet>
-               </p:cellEditor>
-            </p:column>
+            filterMatchMode="contains">
+            <h:outputText value="#{productoDiccRecord.producto}"/>
+               </p:column>
 
             <p:column headerText="Diccionario ALPH" filterBy="#{productoDiccRecord.codDescripcion}"
-                      filterMatchMode="contains"
-            >
-
-                <p:cellEditor>
-                <f:facet name="output">
-                <h:outputText value="#{productoDiccRecord.codDescripcion}"/>
-                </f:facet>
-
-
-                <f:facet name="input">
-                    <p:inputText value="#{productoDiccRecord.codDescripcion}"/>
-                </f:facet>
-
-                </p:cellEditor>
-
+                      filterMatchMode="contains">
+               <h:outputText value="#{productoDiccRecord.codDescripcion}"/>
             </p:column>
-
-            <p:column headerText="Accion">
-                <p:rowEditor />
-            </p:column>
-
         </p:dataTable>
 
      </h:form>
