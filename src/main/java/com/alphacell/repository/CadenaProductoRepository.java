@@ -32,4 +32,7 @@ public class CadenaProductoRepository implements Serializable {
     }
 
 
+    public CadenaProducto guardar(CadenaProducto cadenaProductoPersistencia) {
+        return manager.merge(cadenaProductoPersistencia);
+    }
 }

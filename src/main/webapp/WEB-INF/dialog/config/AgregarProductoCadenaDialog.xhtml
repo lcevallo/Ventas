@@ -18,9 +18,9 @@
               position="top" appendTo="@(body)" draggable="false"
               resizable="true" id="Add-producto-canal-Dialog">
 
-        <h:form id="fmr--producto-canal">
+        <h:form id="fmr-producto-canal">
             <p:messages id="msgs-dialog-producto-canal" />
-            <p:defaultCommand target="producto-canal-guardar-button" scope="dd-producto-canal-Dialog" />
+            <p:defaultCommand target="producto-canal-guardar-button" scope="Add-producto-canal-Dialog" />
             <h:panelGrid columns="2" id="panel-producto-canal-dialog">
 
                 <p:outputLabel value="Ingrese el nombre del Producto" for="dlg-producto-nombre" />
@@ -30,13 +30,17 @@
 
 
             <p:commandButton value="Guardar" id="producto-canal-guardar-button"
-                             action="#{configBean.guardarCadena}"
-                             process="Add-producto-canal-Dialog" update=":configForm:cadenaCombo"
+                             action="#{configBean.guardarCadenaProducto}"
+                             process="Add-producto-canal-Dialog" update=":configForm:tableProductoDiccionario"
                              oncomplete="if (!args.validationFailed) PF('Add-producto-canal-DialogWidget').hide()" />
 
 
             </h:panelGrid>
 
          </h:form>
+        </p:dialog>
+    </h:body>
+</html>
+
 
 

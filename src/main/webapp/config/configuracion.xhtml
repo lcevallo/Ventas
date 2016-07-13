@@ -38,15 +38,28 @@
 
 
                  <p:menuButton value="Nuevo" >
-                     <p:menuitem value="Registro producto-diccionario"
+
+
+                     <p:menuitem value="Registro cadena-Producto"
                                  disabled="#{configBean.puedoCrearNuevo==false}"
+                                 action="#{configBean.prepararNuevoRegistroCanalProducto}"
+                                 process="@this" update="Add-producto-canal-Dialog"
+                                 oncomplete="PF('Add-producto-canal-DialogWidget').show()">
+                         <p:resetInput target="Add-producto-canal-Dialog" />
+                     </p:menuitem>
+
+
+                     <p:menuitem value="Registro producto-diccionario"
+                                 disabled="#{configBean.puedoCrearNuevoProductoDiccionario==false}"
                                  action="#{configBean.prepararNuevoRegistro}"
                                  process="@this" update="AddproductoDiccDialog"
                                  oncomplete="PF('AddproductoDiccDialogWidget').show()">
                          <p:resetInput target="AddproductoDiccDialog" />
-                             </p:menuitem>
+                     </p:menuitem>
 
-                     <p:menuitem value="Registro cadena-Producto" />
+
+
+
                      <p:menuitem value="Delete" />
                      <p:separator />
                      <p:menuitem value="Homepage" />

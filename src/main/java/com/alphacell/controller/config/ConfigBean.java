@@ -6,6 +6,7 @@ import com.alphacell.repository.CadenaProductoRepository;
 import com.alphacell.repository.ConfigRepository;
 import com.alphacell.repository.DiccionarioRepository;
 import com.alphacell.service.RegistroCadena;
+import com.alphacell.service.RegistroCadenaProducto;
 import com.alphacell.service.RegistroProductoDiccionario;
 import com.alphacell.util.jsf.FacesUtil;
 import org.primefaces.context.RequestContext;
@@ -36,6 +37,7 @@ public class ConfigBean implements Serializable{
 
 	private Boolean puedoCrearNuevo=false;
 	private Boolean presioneNuevo=false;
+	private Boolean puedoCrearNuevoProductoDiccionario=false;
 
 
 	private List<DiccionarioAlph> cmbDiccionario;
@@ -55,6 +57,8 @@ public class ConfigBean implements Serializable{
 
 	private Cadena cadenaEdicion= new Cadena();
 
+	private CadenaProducto cadenaProductoEdicion= new CadenaProducto();
+
     @Inject
     private ConfigRepository configRepository;
 
@@ -67,9 +71,11 @@ public class ConfigBean implements Serializable{
 	@Inject
 	private RegistroProductoDiccionario registroProductoDiccionario;
 
-
 	@Inject
 	private RegistroCadena registroCadena;
+
+	@Inject
+	private RegistroCadenaProducto registroCadenaProducto;
 
     @PostConstruct
     public void iniciar()
@@ -108,12 +114,18 @@ public class ConfigBean implements Serializable{
 		this.presioneNuevo=true;
 	}
 
+	public void prepararNuevoRegistroCanalProducto(){
+		this.cadenaProductoEdicion=new CadenaProducto();
+		this.cadenaProductoEdicion.setFkCadena(this.selectedCadena);
+	}
+
 	public void cargarTablaRelacionProductoDiccionario()
 	{
 
 		this.tblTmpProductoDiccionario.clear();
 		this.tblTmpProductoDiccionario= this.configRepository.cargarTablaProductoDiccionario(this.selectedCadena.getId());
 		this.puedoCrearNuevo=true;
+		this.puedoCrearNuevoProductoDiccionario=this.tblTmpProductoDiccionario.size()>0;
 	}
 
 
@@ -155,6 +167,37 @@ public class ConfigBean implements Serializable{
 
 		RequestContext.getCurrentInstance().update(
 				Arrays.asList("configForm:cadenaCombo"));
+
+	}
+
+
+
+	/**
+	 * Ingresa en la base de datos el registro de cadena producto.
+	 * Toma los datos del dialogo de AgregarProductoCadena
+	 * Como es el nombre del producto y ademas toma el valor seteado en
+	 * el combobox de los canales
+	 * This method always returns immediately, whether or not the
+	 * image exists. When this applet attempts to draw the image on
+	 * the screen, the data will be loaded. The graphics primitives
+	 * that draw the image will incrementally paint on the screen.
+	 *
+	 * @param     no tiene parametros
+	 * @see         En la pagina se agregara en el datatable un nuevo producto sin relacion del diccionario de alphacell
+	 */
+
+	public void guardarCadenaProducto()
+	{
+
+		registroCadenaProducto.guardarRegistro(this.cadenaProductoEdicion);
+
+		FacesUtil.addInfoMessage("Producto agregado al canal"+ this.selectedCadena.getNombre()+" con exito!");
+
+		this.cargarTablaRelacionProductoDiccionario();
+
+		RequestContext.getCurrentInstance().update(
+				Arrays.asList("configForm:tableProductoDiccionario"));
+
 
 	}
 
@@ -256,5 +299,22 @@ public class ConfigBean implements Serializable{
 
 	public void setCadenaEdicion(Cadena cadenaEdicion) {
 		this.cadenaEdicion = cadenaEdicion;
+	}
+
+
+	public CadenaProducto getCadenaProductoEdicion() {
+		return cadenaProductoEdicion;
+	}
+
+	public void setCadenaProductoEdicion(CadenaProducto cadenaProductoEdicion) {
+		this.cadenaProductoEdicion = cadenaProductoEdicion;
+	}
+
+	public Boolean getPuedoCrearNuevoProductoDiccionario() {
+		return puedoCrearNuevoProductoDiccionario;
+	}
+
+	public void setPuedoCrearNuevoProductoDiccionario(Boolean puedoCrearNuevoProductoDiccionario) {
+		this.puedoCrearNuevoProductoDiccionario = puedoCrearNuevoProductoDiccionario;
 	}
 }
