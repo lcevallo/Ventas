@@ -38,7 +38,6 @@ public class CadenaProducto implements Serializable {
     private String producto;
     @Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "recid")
     private Integer recid;
     @JoinColumn(name = "fk_cadena", referencedColumnName = "ID")

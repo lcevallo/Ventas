@@ -12,41 +12,64 @@
 
      <h:form id="configForm">
          <p:messages id="msgs" />
-        <h:outputLabel for="cadenaCombo"  value="Cadena(*):" />
-        <p:selectOneMenu label="Seleccione Clientes"
-                              id="cadenaCombo" required="true"
+
+<h:panelGrid columns="2">
+        <p:selectOneMenu label="Seleccione Cadenas"
+                              id="cadenaCombo"
                               value="#{configBean.selectedCadena}"
                               filter="true"
                               filterMatchMode="contains"
         >
-            <p:ajax event="change" process="@this" update="tableProductoDiccionario"  listener="#{configBean.cargarTablaRelacionProductoDiccionario}" />
+            <p:ajax event="change" process="@this" update="tableProductoDiccionario :configForm:toolbarConfig"  listener="#{configBean.cargarTablaRelacionProductoDiccionario}" />
             <f:selectItem itemLabel="Seleccione un Canal" />
             <f:selectItems value="#{configBean.cmbCadenas}" var="cadenaRecord"
                            itemValue="#{cadenaRecord}" itemLabel="#{cadenaRecord.nombre}" />
 
         </p:selectOneMenu>
 
+         <p:commandButton icon="ui-icon-plus"
+                          action="#{configBean.prepararNuevaCadena}"
+                          oncomplete="PF('Addcadena-DialogWidget').show()"
+                          title="Agregar nueva Cadena" />
+</h:panelGrid>
+
          <p:toolbar id="toolbarConfig">
              <f:facet name="left">
-                 <p:commandButton value="Nuevo" icon="ui-icon-document"
-                                  action="#{configBean.prepararNuevoRegistro}"
-                                  process="@this" update="AddproductoDiccDialog"
-                                  oncomplete="PF('AddproductoDiccDialogWidget').show()">
-                     <p:resetInput target="AddproductoDiccDialog" />
-                 </p:commandButton>
 
-					<span class="ui-separator">
-						<span class="ui-icon ui-icon-grip-dotted-vertical" />
-            		</span>
+
+                 <p:menuButton value="Nuevo" >
+                     <p:menuitem value="Registro producto-diccionario"
+                                 disabled="#{configBean.puedoCrearNuevo==false}"
+                                 action="#{configBean.prepararNuevoRegistro}"
+                                 process="@this" update="AddproductoDiccDialog"
+                                 oncomplete="PF('AddproductoDiccDialogWidget').show()">
+                         <p:resetInput target="AddproductoDiccDialog" />
+                             </p:menuitem>
+
+                     <p:menuitem value="Registro cadena-Producto" />
+                     <p:menuitem value="Delete" />
+                     <p:separator />
+                     <p:menuitem value="Homepage" />
+                 </p:menuButton>
+
+
+
+	 <span class="ui-separator">
+			<span class="ui-icon ui-icon-grip-dotted-vertical" />
+         </span>
 
                  <p:commandButton icon="ui-icon-pencil" title="Editar"
                                   process="@this" update="AddproductoDiccDialog"
                                   oncomplete="PF('AddproductoDiccDialogWidget').show()"
-                                  disabled="#{configBean.tmpProductoDiccionarioSelected == null}">
-                     <p:resetInput target="AddproductoDiccDialog" />
+                                  disabled="#{configBean.tmpProductoDiccionarioSelected == null}"
+                                  action="#{configBean.selectEdicion}"
 
+                 >
+                     <p:resetInput target="AddproductoDiccDialog" />
+<!--
                      <f:setPropertyActionListener value="#{configBean.tmpProductoDiccionarioSelected}"
-                                                  target="#{configBean.productoDiccionarioEdicion}" />
+                                                  target="#{configBean.tmpProductoDiccionarioEdicion}" />
+                                                  -->
                  </p:commandButton>
 
                  <p:commandButton icon="ui-icon-trash" title="Eliminar"

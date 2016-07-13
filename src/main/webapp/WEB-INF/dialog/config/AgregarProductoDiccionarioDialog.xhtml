@@ -15,7 +15,7 @@
     </h:head>
     <p:dialog header="Agregar Relacion Producto Diccionario" modal="true" showEffect="fade"
               hideEffect="fade" widgetVar="AddproductoDiccDialogWidget" width="40%"
-              position="top" appendToBody="false" draggable="false"
+              position="top" appendTo="@(body)" draggable="false"
               resizable="true" id="AddproductoDiccDialog">
 
         <h:form id="fmrAddproductoDicc">
@@ -25,6 +25,7 @@
             <h:panelGrid columns="2" id="panel-dialog">
                 <p:outputLabel value="Producto del Canal" for="cmbProductoDialog" />
                 <p:selectOneMenu
+                        disabled="#{configBean.presioneNuevo==false}"
                      id="cmbProductoDialog" required="true"
                      value="#{configBean.selectedCadenaProducto}"
                      filter="true"

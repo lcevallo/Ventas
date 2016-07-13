@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+>
+
+<h:body>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="sistema.css" />
+    </h:head>
+    <p:dialog header="Agregar Canal Nuevo" modal="true" showEffect="fade"
+              hideEffect="fade" widgetVar="Addcadena-DialogWidget" width="40%"
+              position="top" appendTo="@(body)" draggable="false"
+              resizable="true" id="AddCandena-Dialog">
+
+        <h:form id="fmr-AddCadena">
+            <p:messages id="msgs-dialog" />
+            <p:defaultCommand target="dlgCanal-guardar-button" scope="AddCandena-Dialog" />
+
+            <h:panelGrid columns="2" id="cadena-panel-dialog">
+
+                <p:outputLabel value="Ingrese el nombre  del Canal" for="dlgNombreCadena" />
+                <p:inputText id="dlgNombreCadena" maxlength="50"
+                             value="#{configBean.cadenaEdicion.nombre}" />
+
+                <p:commandButton value="Guardar" id="dlgCanal-guardar-button"
+                                 action="#{configBean.guardarCadena}"
+                                 process="AddCandena-Dialog" update=":configForm:cadenaCombo"
+                                 oncomplete="if (!args.validationFailed) PF('Addcadena-DialogWidget').hide()" />
+            </h:panelGrid>
+
+        </h:form>
+    </p:dialog>
+</h:body>
+</html>

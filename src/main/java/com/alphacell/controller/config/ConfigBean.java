@@ -5,6 +5,7 @@ import com.alphacell.model.*;
 import com.alphacell.repository.CadenaProductoRepository;
 import com.alphacell.repository.ConfigRepository;
 import com.alphacell.repository.DiccionarioRepository;
+import com.alphacell.service.RegistroCadena;
 import com.alphacell.service.RegistroProductoDiccionario;
 import com.alphacell.util.jsf.FacesUtil;
 import org.primefaces.context.RequestContext;
@@ -33,6 +34,10 @@ public class ConfigBean implements Serializable{
 	private List<Cadena> cmbCadenas;
 	private Cadena selectedCadena;
 
+	private Boolean puedoCrearNuevo=false;
+	private Boolean presioneNuevo=false;
+
+
 	private List<DiccionarioAlph> cmbDiccionario;
 	private DiccionarioAlph selectedDiccionario;
 
@@ -48,6 +53,8 @@ public class ConfigBean implements Serializable{
 
 	private ProductoDiccionario productoDiccionarioEdicion;
 
+	private Cadena cadenaEdicion= new Cadena();
+
     @Inject
     private ConfigRepository configRepository;
 
@@ -60,21 +67,45 @@ public class ConfigBean implements Serializable{
 	@Inject
 	private RegistroProductoDiccionario registroProductoDiccionario;
 
+
+	@Inject
+	private RegistroCadena registroCadena;
+
     @PostConstruct
     public void iniciar()
     {
-        this.tblTmpProductoDiccionario= new ArrayList<TmpProductoDiccionario>();
+
+		this.puedoCrearNuevo=false;
+		this.presioneNuevo=false;
+		this.tblTmpProductoDiccionario= new ArrayList<TmpProductoDiccionario>();
 		this.cmbCadenas=this.configRepository.findAll();
 		this.cmbDiccionario=this.diccionarioRepository.findAll();
 		this.cmbCadenaProducto=this.cadenaProductoRepository.findAll();
 
     }
 
+	public void selectEdicion(){
+
+		this.presioneNuevo=false;
+		this.tmpProductoDiccionarioEdicion=this.tmpProductoDiccionarioSelected;
+		this.selectedCadenaProducto= cadenaProductoRepository.findById(this.tmpProductoDiccionarioEdicion.getRecid());
+
+		if(this.tmpProductoDiccionarioEdicion.getFkDiccionario()!=null)
+			this.selectedDiccionario=diccionarioRepository.findById(this.tmpProductoDiccionarioEdicion.getFkDiccionario());
+		else
+			this.selectedDiccionario=null;
+	}
+
+
+	public void prepararNuevaCadena(){
+		this.cadenaEdicion= new Cadena();
+	}
+
 
 	public void prepararNuevoRegistro(){
 
 		this.tmpProductoDiccionarioEdicion= new TmpProductoDiccionario();
-		
+		this.presioneNuevo=true;
 	}
 
 	public void cargarTablaRelacionProductoDiccionario()
@@ -82,7 +113,7 @@ public class ConfigBean implements Serializable{
 
 		this.tblTmpProductoDiccionario.clear();
 		this.tblTmpProductoDiccionario= this.configRepository.cargarTablaProductoDiccionario(this.selectedCadena.getId());
-
+		this.puedoCrearNuevo=true;
 	}
 
 
@@ -91,15 +122,40 @@ public class ConfigBean implements Serializable{
 
 		this.productoDiccionarioEdicion= new ProductoDiccionario();
 
+		Integer old_diccionario=-1;
 
+		if(this.tmpProductoDiccionarioEdicion.getFkDiccionario()!=null)
+		{
+			old_diccionario=this.tmpProductoDiccionarioEdicion.getFkDiccionario();
+
+		}
 		this.productoDiccionarioEdicion.setProductoDiccionarioPK(new ProductoDiccionarioPK(this.selectedCadenaProducto.getRecid(),this.selectedDiccionario.getId()) );
 
-		this.registroProductoDiccionario.guardarRegistro(this.productoDiccionarioEdicion);
 
-		FacesUtil.addInfoMessage("Registro Guardado con exito!");
+		String salida= this.registroProductoDiccionario.guardarRegistro2(old_diccionario,this.productoDiccionarioEdicion);
+
+		FacesUtil.addInfoMessage(salida);
 
 		RequestContext.getCurrentInstance().update(
 				Arrays.asList("configForm:msgs", "configForm:tableProductoDiccionario"));
+	}
+
+	public void guardarCadena()
+	{
+
+		registroCadena.guardarCadena(this.cadenaEdicion);
+
+/*
+		this.cmbCadenas.clear();
+		this.cmbCadenas=this.configRepository.findAll();
+*/
+
+		FacesUtil.addInfoMessage("Cadena agregada con exito");
+
+
+		RequestContext.getCurrentInstance().update(
+				Arrays.asList("configForm:cadenaCombo"));
+
 	}
 
 	public List<Cadena> getCmbCadenas() {
@@ -180,5 +236,25 @@ public class ConfigBean implements Serializable{
 
 	public void setTmpProductoDiccionarioEdicion(TmpProductoDiccionario tmpProductoDiccionarioEdicion) {
 		this.tmpProductoDiccionarioEdicion = tmpProductoDiccionarioEdicion;
+	}
+
+	public Boolean getPuedoCrearNuevo() {
+		return puedoCrearNuevo;
+	}
+
+	public void setPuedoCrearNuevo(Boolean puedoCrearNuevo) {
+		this.puedoCrearNuevo = puedoCrearNuevo;
+	}
+
+	public Boolean getPresioneNuevo() {
+		return presioneNuevo;
+	}
+
+	public Cadena getCadenaEdicion() {
+		return cadenaEdicion;
+	}
+
+	public void setCadenaEdicion(Cadena cadenaEdicion) {
+		this.cadenaEdicion = cadenaEdicion;
 	}
 }

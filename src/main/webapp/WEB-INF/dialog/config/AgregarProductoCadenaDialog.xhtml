@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+>
+
+<h:body>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="sistema.css" />
+    </h:head>
+    <p:dialog header="Agregar Producto en Canal" modal="true" showEffect="fade"
+              hideEffect="fade" widgetVar="Add-producto-canal-DialogWidget" width="40%"
+              position="top" appendTo="@(body)" draggable="false"
+              resizable="true" id="Add-producto-canal-Dialog">
+
+        <h:form id="fmr--producto-canal">
+            <p:messages id="msgs-dialog-producto-canal" />
+            <p:defaultCommand target="producto-canal-guardar-button" scope="dd-producto-canal-Dialog" />
+            <h:panelGrid columns="2" id="panel-producto-canal-dialog">
+
+                <p:outputLabel value="Ingrese el nombre del Producto" for="dlg-producto-nombre" />
+                <p:inputText id="dlg-producto-nombre" maxlength="50"
+                             value="#{configBean.cadenaEdicion.nombre}" />
+
+
+
+            <p:commandButton value="Guardar" id="producto-canal-guardar-button"
+                             action="#{configBean.guardarCadena}"
+                             process="Add-producto-canal-Dialog" update=":configForm:cadenaCombo"
+                             oncomplete="if (!args.validationFailed) PF('Add-producto-canal-DialogWidget').hide()" />
+
+
+            </h:panelGrid>
+
+         </h:form>
+
+

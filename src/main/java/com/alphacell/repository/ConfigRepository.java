@@ -63,4 +63,14 @@ public class ConfigRepository implements Serializable {
         return null;
     }
 
+    public Cadena guardarCadena(Cadena cadenaObj) {
+
+        /*
+        if (!manager.contains(cadenaObj)) {
+            manager.persist(cadenaObj);
+        }
+            */
+
+        return manager.merge(cadenaObj);
+    }
 }
