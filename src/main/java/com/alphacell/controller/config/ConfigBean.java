@@ -111,6 +111,7 @@ public class ConfigBean implements Serializable{
 	public void prepararNuevoRegistro(){
 
 		this.tmpProductoDiccionarioEdicion= new TmpProductoDiccionario();
+		this.cargarTablaRelacionProductoDiccionario();
 		this.presioneNuevo=true;
 	}
 
@@ -182,8 +183,7 @@ public class ConfigBean implements Serializable{
 	 * the screen, the data will be loaded. The graphics primitives
 	 * that draw the image will incrementally paint on the screen.
 	 *
-	 * @param     no tiene parametros
-	 * @see         En la pagina se agregara en el datatable un nuevo producto sin relacion del diccionario de alphacell
+	 * @see    null     En la pagina se agregara en el datatable un nuevo producto sin relacion del diccionario de alphacell
 	 */
 
 	public void guardarCadenaProducto()
