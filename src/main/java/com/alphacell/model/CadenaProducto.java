@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -36,8 +38,9 @@ public class CadenaProducto implements Serializable {
     @Column(name = "producto")
     private String producto;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "recid")
+    @Column(name = "recid",unique = true)
     private Integer recid;
     @JoinColumn(name = "fk_cadena", referencedColumnName = "ID")
     @ManyToOne(optional = false)
