@@ -86,13 +86,15 @@ public class ConfigBean implements Serializable{
 		this.tblTmpProductoDiccionario= new ArrayList<TmpProductoDiccionario>();
 		this.cmbCadenas=this.configRepository.findAll();
 		this.cmbDiccionario=this.diccionarioRepository.findAll();
-		this.cmbCadenaProducto=this.cadenaProductoRepository.findAll();
+
 
     }
 
 	public void selectEdicion(){
 
+
 		this.presioneNuevo=false;
+		this.cmbCadenaProducto=this.cadenaProductoRepository.findByCadenaId(this.selectedCadena.getId());
 		this.tmpProductoDiccionarioEdicion=this.tmpProductoDiccionarioSelected;
 		this.selectedCadenaProducto= cadenaProductoRepository.findById(this.tmpProductoDiccionarioEdicion.getRecid());
 
@@ -112,12 +114,15 @@ public class ConfigBean implements Serializable{
 
 		this.tmpProductoDiccionarioEdicion= new TmpProductoDiccionario();
 		this.cargarTablaRelacionProductoDiccionario();
+		this.cmbCadenaProducto=this.cadenaProductoRepository.findByCadenaId(this.selectedCadena.getId());
+
 		this.presioneNuevo=true;
 	}
 
 	public void prepararNuevoRegistroCanalProducto(){
 		this.cadenaProductoEdicion=new CadenaProducto();
 		this.cadenaProductoEdicion.setFkCadena(this.selectedCadena);
+		this.cmbCadenaProducto=this.cadenaProductoRepository.findByCadenaId(this.selectedCadena.getId());
 	}
 
 	public void cargarTablaRelacionProductoDiccionario()
@@ -149,8 +154,12 @@ public class ConfigBean implements Serializable{
 
 		FacesUtil.addInfoMessage(salida);
 
+		this.cargarTablaRelacionProductoDiccionario();
+
+
+		//cargarTablaRelacionProductoDiccionario();
 		RequestContext.getCurrentInstance().update(
-				Arrays.asList("configForm:msgs", "configForm:tableProductoDiccionario"));
+				Arrays.asList("configForm:msgs","configForm:tableProductoDiccionario"));
 	}
 
 	public void guardarCadena()

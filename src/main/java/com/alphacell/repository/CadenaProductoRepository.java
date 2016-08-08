@@ -25,6 +25,13 @@ public class CadenaProductoRepository implements Serializable {
         return query.getResultList();
     }
 
+
+    public List<CadenaProducto> findByCadenaId(Integer idCadena) {
+        Query query = manager.createNamedQuery("CadenaProducto.findByCadena");
+        query.setParameter("idCadena",idCadena);
+        return query.getResultList();
+    }
+
     public CadenaProducto findById(Integer id) {
         Query query = manager.createNamedQuery("CadenaProducto.findByRecid");
         query.setParameter("recid",id);

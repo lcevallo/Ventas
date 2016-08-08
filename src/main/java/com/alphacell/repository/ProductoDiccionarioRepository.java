@@ -1,12 +1,17 @@
 package com.alphacell.repository;
 
 import com.alphacell.model.ProductoDiccionario;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.exception.GenericJDBCException;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureQuery;
+import javax.swing.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -34,8 +39,11 @@ public class ProductoDiccionarioRepository implements Serializable {
     public String guardar2 (Integer old_diccionario,ProductoDiccionario productoDiccionario)
     {
 
-        String salida;
+        String salida="";
         try{
+
+
+           /*
 
             Session session = manager.unwrap(Session.class);
 
@@ -46,16 +54,37 @@ public class ProductoDiccionarioRepository implements Serializable {
 
 
             salida = String.join("",query.list());
+         */
+            StoredProcedureQuery query = this.manager.createStoredProcedureQuery("LC_GuardarProductoDiccionario");
+            query.registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN);
+            query.registerStoredProcedureParameter(2, Integer.class, ParameterMode.IN);
+            query.registerStoredProcedureParameter(3, Integer.class, ParameterMode.IN);
 
-            return salida;
+            query.setParameter(1, productoDiccionario.getProductoDiccionarioPK().getFkProducto());
+            query.setParameter(2, old_diccionario);
+            query.setParameter(3, productoDiccionario.getProductoDiccionarioPK().getFkDiccionario());
+
+            //aqui salio
+            if (query.execute())
+            {
+
+                salida = query.getSingleResult().toString();
+
+            }
+
+            //salida = String.join("",query.getResultList());
+
 
         }
-        catch (SecurityException | IllegalStateException e)
+        catch (GenericJDBCException |SecurityException | IllegalStateException  e)
         {
+
+            JOptionPane.showMessageDialog(null, "ERROR AL REGISTRAR" + e, "ERROR", JOptionPane.WARNING_MESSAGE);
+
             e.printStackTrace();
         }
-        return null;
 
+             return salida;
 
     }
 
