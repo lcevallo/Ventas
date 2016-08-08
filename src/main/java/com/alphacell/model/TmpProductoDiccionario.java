@@ -30,7 +30,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TmpProductoDiccionario.findByProducto", query = "SELECT t FROM TmpProductoDiccionario t WHERE t.producto = :producto"),
     @NamedQuery(name = "TmpProductoDiccionario.findByRecid", query = "SELECT t FROM TmpProductoDiccionario t WHERE t.recid = :recid"),
     @NamedQuery(name = "TmpProductoDiccionario.findByFkDiccionario", query = "SELECT t FROM TmpProductoDiccionario t WHERE t.fkDiccionario = :fkDiccionario"),
-    @NamedQuery(name = "TmpProductoDiccionario.findByCodDescripcion", query = "SELECT t FROM TmpProductoDiccionario t WHERE t.codDescripcion = :codDescripcion")})
+    @NamedQuery(name = "TmpProductoDiccionario.findByCodDescripcion", query = "SELECT t FROM TmpProductoDiccionario t WHERE t.codDescripcion = :codDescripcion"),
+    @NamedQuery(name = "TmpProductoDiccionario.findByFkOperadora", query = "SELECT t FROM TmpProductoDiccionario t WHERE t.fkOperadora = :fkOperadora"),
+    @NamedQuery(name = "TmpProductoDiccionario.findByOperadora", query = "SELECT t FROM TmpProductoDiccionario t WHERE t.operadora = :operadora")})
 public class TmpProductoDiccionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,6 +51,11 @@ public class TmpProductoDiccionario implements Serializable {
     @Size(max = 300)
     @Column(name = "COD_DESCRIPCION")
     private String codDescripcion;
+    @Column(name = "fk_operadora")
+    private Integer fkOperadora;
+    @Size(max = 50)
+    @Column(name = "operadora")
+    private String operadora;
 
     public TmpProductoDiccionario() {
     }
@@ -95,6 +102,22 @@ public class TmpProductoDiccionario implements Serializable {
 
     public void setCodDescripcion(String codDescripcion) {
         this.codDescripcion = codDescripcion;
+    }
+
+    public Integer getFkOperadora() {
+        return fkOperadora;
+    }
+
+    public void setFkOperadora(Integer fkOperadora) {
+        this.fkOperadora = fkOperadora;
+    }
+
+    public String getOperadora() {
+        return operadora;
+    }
+
+    public void setOperadora(String operadora) {
+        this.operadora = operadora;
     }
 
     @Override

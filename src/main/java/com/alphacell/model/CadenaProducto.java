@@ -9,14 +9,13 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -30,7 +29,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "CadenaProducto.findAll", query = "SELECT c FROM CadenaProducto c"),
     @NamedQuery(name = "CadenaProducto.findByProducto", query = "SELECT c FROM CadenaProducto c WHERE c.producto = :producto"),
-    @NamedQuery(name = "CadenaProducto.findByCadena", query = "SELECT c FROM CadenaProducto c WHERE c.fkCadena.id = :idCadena"),
     @NamedQuery(name = "CadenaProducto.findByRecid", query = "SELECT c FROM CadenaProducto c WHERE c.recid = :recid")})
 public class CadenaProducto implements Serializable {
 
@@ -39,13 +37,16 @@ public class CadenaProducto implements Serializable {
     @Column(name = "producto")
     private String producto;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "recid",unique = true)
+    @NotNull
+    @Column(name = "recid")
     private Integer recid;
     @JoinColumn(name = "fk_cadena", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Cadena fkCadena;
+    @JoinColumn(name = "fk_operadora", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Operador fkOperadora;
 
     public CadenaProducto() {
     }
@@ -76,6 +77,14 @@ public class CadenaProducto implements Serializable {
 
     public void setFkCadena(Cadena fkCadena) {
         this.fkCadena = fkCadena;
+    }
+
+    public Operador getFkOperadora() {
+        return fkOperadora;
+    }
+
+    public void setFkOperadora(Operador fkOperadora) {
+        this.fkOperadora = fkOperadora;
     }
 
     @Override
