@@ -5,6 +5,7 @@ import com.alphacell.model.*;
 import com.alphacell.repository.CadenaProductoRepository;
 import com.alphacell.repository.ConfigRepository;
 import com.alphacell.repository.DiccionarioRepository;
+import com.alphacell.repository.OperadorRepository;
 import com.alphacell.service.RegistroCadena;
 import com.alphacell.service.RegistroCadenaProducto;
 import com.alphacell.service.RegistroProductoDiccionario;
@@ -47,6 +48,9 @@ public class ConfigBean implements Serializable{
 	private List<CadenaProducto> cmbCadenaProducto;
 	private CadenaProducto selectedCadenaProducto;
 
+	private List<Operador> cmbOperadora;
+	private Operador selectedOperadora;
+
 	private List<TmpProductoDiccionario> tblTmpProductoDiccionario;
 
 	private TmpProductoDiccionario tmpProductoDiccionarioSelected;
@@ -77,6 +81,9 @@ public class ConfigBean implements Serializable{
 	@Inject
 	private RegistroCadenaProducto registroCadenaProducto;
 
+    @Inject
+    private OperadorRepository operadorRepository;
+
     @PostConstruct
     public void iniciar()
     {
@@ -86,7 +93,7 @@ public class ConfigBean implements Serializable{
 		this.tblTmpProductoDiccionario= new ArrayList<TmpProductoDiccionario>();
 		this.cmbCadenas=this.configRepository.findAll();
 		this.cmbDiccionario=this.diccionarioRepository.findAll();
-
+        this.cmbOperadora=this.operadorRepository.findALl();
 
     }
 
@@ -98,10 +105,21 @@ public class ConfigBean implements Serializable{
 		this.tmpProductoDiccionarioEdicion=this.tmpProductoDiccionarioSelected;
 		this.selectedCadenaProducto= cadenaProductoRepository.findById(this.tmpProductoDiccionarioEdicion.getRecid());
 
+
+
 		if(this.tmpProductoDiccionarioEdicion.getFkDiccionario()!=null)
-			this.selectedDiccionario=diccionarioRepository.findById(this.tmpProductoDiccionarioEdicion.getFkDiccionario());
+        {
+            this.selectedDiccionario=diccionarioRepository.findById(this.tmpProductoDiccionarioEdicion.getFkDiccionario());
+            this.selectedOperadora=this.operadorRepository.findById(this.tmpProductoDiccionarioEdicion.getFkOperadora());
+            
+        }
+
 		else
-			this.selectedDiccionario=null;
+        {
+
+            this.selectedDiccionario=null;
+        }
+
 	}
 
 
@@ -325,5 +343,21 @@ public class ConfigBean implements Serializable{
 
 	public void setPuedoCrearNuevoProductoDiccionario(Boolean puedoCrearNuevoProductoDiccionario) {
 		this.puedoCrearNuevoProductoDiccionario = puedoCrearNuevoProductoDiccionario;
+	}
+
+	public List<Operador> getCmbOperadora() {
+		return cmbOperadora;
+	}
+
+	public void setCmbOperadora(List<Operador> cmbOperadora) {
+		this.cmbOperadora = cmbOperadora;
+	}
+
+	public Operador getSelectedOperadora() {
+		return selectedOperadora;
+	}
+
+	public void setSelectedOperadora(Operador selectedOperadora) {
+		this.selectedOperadora = selectedOperadora;
 	}
 }

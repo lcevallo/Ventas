@@ -126,6 +126,12 @@
                       filterMatchMode="contains">
                <h:outputText value="#{productoDiccRecord.codDescripcion}"/>
             </p:column>
+
+            <p:column headerText="Operadora" filterBy="#{productoDiccRecord.operadora}"
+                      filterMatchMode="contains">
+                <h:outputText value="#{productoDiccRecord.operadora}"/>
+            </p:column>
+
         </p:dataTable>
 
      </h:form>
