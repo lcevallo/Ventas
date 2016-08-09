@@ -111,7 +111,7 @@ public class ConfigBean implements Serializable{
         {
             this.selectedDiccionario=diccionarioRepository.findById(this.tmpProductoDiccionarioEdicion.getFkDiccionario());
             this.selectedOperadora=this.operadorRepository.findById(this.tmpProductoDiccionarioEdicion.getFkOperadora());
-            
+
         }
 
 		else

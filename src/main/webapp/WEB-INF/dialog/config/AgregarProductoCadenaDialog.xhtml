@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="sistema.css" />
     </h:head>
-    <p:dialog header="Agregar Producto en Canal" modal="true" showEffect="fade"
+    <p:dialog header="Agregar Producto en Cadena" modal="true" showEffect="fade"
               hideEffect="fade" widgetVar="Add-producto-canal-DialogWidget" width="40%"
               position="top" appendTo="@(body)" draggable="false"
               resizable="true" id="Add-producto-canal-Dialog">
@@ -27,6 +27,17 @@
                 <p:inputText id="dlg-producto-nombre" maxlength="50"
                              value="#{configBean.cadenaProductoEdicion.producto}" />
 
+
+                <p:outputLabel value="Operador" for="cmbOperadorDialogCadenaProducto" />
+                <p:selectOneMenu
+                        id="cmbOperadorDialogCadenaProducto" required="true"
+                        value="#{configBean.cadenaProductoEdicion.fkOperadora}"
+                        filter="true"
+                        filterMatchMode="contains">
+                <f:selectItem itemLabel="Seleccione un Operador" />
+                <f:selectItems value="#{configBean.cmbOperadora}" var="operadorProductoRecordDialog"
+                               itemValue="#{operadorProductoRecordDialog}" itemLabel="#{operadorProductoRecordDialog.nombre}" />
+                </p:selectOneMenu>
 
 
             <p:commandButton value="Guardar" id="producto-canal-guardar-button"
