@@ -38,6 +38,13 @@
 
                  <p:menuButton value="Nuevo" >
 
+                     <p:menuitem value="Registro Diccionario"
+                                 action="#{configBean.prepararNuevoRegistroDiccionario}"
+                                 process="@this" update="AddDiccionarioDialog"
+                                 oncomplete="PF('AddDiccionarioDialogWidget').show()">
+                         <p:resetInput target="AddDiccionarioDialog" />
+                     </p:menuitem>
+
 
                      <p:menuitem value="Registro cadena-Producto"
                                  disabled="#{configBean.puedoCrearNuevo==false}"

@@ -1,11 +1,11 @@
 package com.alphacell.repository;
 
+import com.alphacell.model.DiccionarioAlph;
 import com.alphacell.model.Operador;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -31,6 +31,11 @@ public class OperadorRepository implements Serializable{
         Query query = manager.createNamedQuery("Operador.findById");
         query.setParameter("id",id);
         return (Operador)query.getSingleResult();
-
     }
+
+    public DiccionarioAlph guardar(DiccionarioAlph diccionarioAlphPersistencia)
+    {
+        return manager.merge(diccionarioAlphPersistencia);
+
+     }
 }

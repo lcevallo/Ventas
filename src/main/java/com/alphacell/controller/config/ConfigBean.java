@@ -8,11 +8,17 @@ import com.alphacell.repository.DiccionarioRepository;
 import com.alphacell.repository.OperadorRepository;
 import com.alphacell.service.RegistroCadena;
 import com.alphacell.service.RegistroCadenaProducto;
+import com.alphacell.service.RegistroDiccionario;
 import com.alphacell.service.RegistroProductoDiccionario;
 import com.alphacell.util.jsf.FacesUtil;
 import org.primefaces.context.RequestContext;
+import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.RowEditEvent;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -61,6 +67,8 @@ public class ConfigBean implements Serializable{
 
 	private Cadena cadenaEdicion= new Cadena();
 
+    private DiccionarioAlph diccinarioAlphEdicion= new DiccionarioAlph();
+
 	private CadenaProducto cadenaProductoEdicion= new CadenaProducto();
 
     @Inject
@@ -73,6 +81,9 @@ public class ConfigBean implements Serializable{
 	private CadenaProductoRepository cadenaProductoRepository;
 
 	@Inject
+	private OperadorRepository operadorRepository;
+
+	@Inject
 	private RegistroProductoDiccionario registroProductoDiccionario;
 
 	@Inject
@@ -81,8 +92,10 @@ public class ConfigBean implements Serializable{
 	@Inject
 	private RegistroCadenaProducto registroCadenaProducto;
 
-    @Inject
-    private OperadorRepository operadorRepository;
+	@Inject
+	private RegistroDiccionario registroDiccionario;
+
+
 
     @PostConstruct
     public void iniciar()
@@ -99,18 +112,17 @@ public class ConfigBean implements Serializable{
 
 	public void selectEdicion(){
 
-
 		this.presioneNuevo=false;
 		this.cmbCadenaProducto=this.cadenaProductoRepository.findByCadenaId(this.selectedCadena.getId());
 		this.tmpProductoDiccionarioEdicion=this.tmpProductoDiccionarioSelected;
 		this.selectedCadenaProducto= cadenaProductoRepository.findById(this.tmpProductoDiccionarioEdicion.getRecid());
-
+        this.selectedOperadora=this.operadorRepository.findById(this.tmpProductoDiccionarioEdicion.getFkOperadora());
 
 
 		if(this.tmpProductoDiccionarioEdicion.getFkDiccionario()!=null)
         {
             this.selectedDiccionario=diccionarioRepository.findById(this.tmpProductoDiccionarioEdicion.getFkDiccionario());
-            this.selectedOperadora=this.operadorRepository.findById(this.tmpProductoDiccionarioEdicion.getFkOperadora());
+
 
         }
 
@@ -137,6 +149,11 @@ public class ConfigBean implements Serializable{
 		this.presioneNuevo=true;
 	}
 
+	public void prepararNuevoRegistroDiccionario()
+	{
+		this.diccinarioAlphEdicion=new DiccionarioAlph();
+	}
+
 	public void prepararNuevoRegistroCanalProducto(){
 		this.cadenaProductoEdicion=new CadenaProducto();
 		this.cadenaProductoEdicion.setFkCadena(this.selectedCadena);
@@ -151,6 +168,13 @@ public class ConfigBean implements Serializable{
 		this.puedoCrearNuevo=true;
 		this.puedoCrearNuevoProductoDiccionario=this.tblTmpProductoDiccionario.size()>0;
 	}
+
+
+    public void guardarNuevoRegistroDiccionario()
+    {
+       this.registroDiccionario.guardarRegistro(this.diccinarioAlphEdicion);
+
+    }
 
 
 	public void guardarNuevoRegistro()
@@ -168,7 +192,7 @@ public class ConfigBean implements Serializable{
 		this.productoDiccionarioEdicion.setProductoDiccionarioPK(new ProductoDiccionarioPK(this.selectedCadenaProducto.getRecid(),this.selectedDiccionario.getId()) );
 
 
-		String salida= this.registroProductoDiccionario.guardarRegistro2(old_diccionario,this.productoDiccionarioEdicion);
+		String salida= this.registroProductoDiccionario.guardarRegistro2(old_diccionario,this.productoDiccionarioEdicion,this.selectedOperadora.getId());
 
 		FacesUtil.addInfoMessage(salida);
 
@@ -227,6 +251,39 @@ public class ConfigBean implements Serializable{
 
 
 	}
+
+
+
+	public void onEditTableDiccionario(RowEditEvent event)
+	{
+
+		FacesMessage msg = new FacesMessage("Diccionario Editado",((DiccionarioAlph) event.getObject()).getId().toString());
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+
+	public void onCellEdit(CellEditEvent event) {
+
+
+		this.selectedDiccionario = this.cmbDiccionario.get(event.getRowIndex());
+
+		Object oldValue = event.getOldValue();
+		Object newValue = event.getNewValue();
+		if (newValue != null && !newValue.equals(oldValue)) {
+			//TODO: Llamar a la persistencia para que guarde este valor
+			this.registroDiccionario.guardarRegistro(this.selectedDiccionario);
+		}
+
+	}
+
+
+
+	public void removeDiccionarioTabla(ActionEvent event) {
+		//TODO:Aqui debo de efectuar la accion de remover de la base de datos
+		//computers.remove(computerSelected);
+	}
+
+
 
 	public List<Cadena> getCmbCadenas() {
 		return cmbCadenas;
@@ -360,4 +417,12 @@ public class ConfigBean implements Serializable{
 	public void setSelectedOperadora(Operador selectedOperadora) {
 		this.selectedOperadora = selectedOperadora;
 	}
+
+    public DiccionarioAlph getDiccinarioAlphEdicion() {
+        return diccinarioAlphEdicion;
+    }
+
+    public void setDiccinarioAlphEdicion(DiccionarioAlph diccinarioAlphEdicion) {
+        this.diccinarioAlphEdicion = diccinarioAlphEdicion;
+    }
 }

@@ -25,10 +25,10 @@ public class RegistroProductoDiccionario implements Serializable{
     }
 
     @Transacional
-    public String  guardarRegistro2(Integer diccionario_old,ProductoDiccionario productoDiccionario)
+    public String  guardarRegistro2(Integer diccionario_old,ProductoDiccionario productoDiccionario,Integer  OperadoraFK)
     {
 
-       return  productoDiccionarioRepository.guardar2(diccionario_old,productoDiccionario);
+       return  productoDiccionarioRepository.guardar2(diccionario_old,productoDiccionario,OperadoraFK);
 
     }
 

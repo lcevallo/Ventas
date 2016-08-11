@@ -36,7 +36,7 @@ public class ProductoDiccionarioRepository implements Serializable {
 
 
 
-    public String guardar2 (Integer old_diccionario,ProductoDiccionario productoDiccionario)
+    public String guardar2 (Integer old_diccionario,ProductoDiccionario productoDiccionario,Integer OperadoraFK)
     {
 
         String salida="";
@@ -59,10 +59,12 @@ public class ProductoDiccionarioRepository implements Serializable {
             query.registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN);
             query.registerStoredProcedureParameter(2, Integer.class, ParameterMode.IN);
             query.registerStoredProcedureParameter(3, Integer.class, ParameterMode.IN);
+            query.registerStoredProcedureParameter(4, Integer.class, ParameterMode.IN);
 
             query.setParameter(1, productoDiccionario.getProductoDiccionarioPK().getFkProducto());
             query.setParameter(2, old_diccionario);
             query.setParameter(3, productoDiccionario.getProductoDiccionarioPK().getFkDiccionario());
+            query.setParameter(4, OperadoraFK);
 
             //aqui salio
             if (query.execute())

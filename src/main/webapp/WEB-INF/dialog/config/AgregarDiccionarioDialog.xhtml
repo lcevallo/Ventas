@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+>
+
+<h:body>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style>
+            body {
+                margin: 0em;
+                padding: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 13px;
+                color: #000;
+            }
+
+            h1, h2, h3 {
+                margin: 0.4em;
+                font-weight: normal;
+            }
+
+            .error {
+                color:#BF0303;
+            }
+
+            div#wrapper{
+                margin:auto;
+                width:790px;
+            }
+
+
+
+            div#header{
+                height:4em;
+                width:100%;
+                margin-top:2em;
+                margin-bottom:2em;
+            }
+            div#header h1{
+                float:right;
+            }
+
+            div#header #logos{
+                float:left;
+                width:100%;
+                padding-bottom: 1em;
+                margin-bottom: 1em;
+                border-bottom: 1px solid #837669;
+            }
+            div#header #logos img{
+                border: 0px;
+                margin-left:75px;
+            }
+
+            div#main{
+                width:100%;
+                padding:0.5em;
+                margin-top:0.5em;
+            }
+
+            div#main div#title{
+                margin-top:0.5em;
+                font-size: 2em;
+            }
+
+            div#main div#content{
+                padding:1em;
+            }
+
+
+            .inputFormData{
+                margin:3em;
+            }
+
+            .inputFormData label{
+                display:block;
+                font-size: 1.5em;
+                margin-bottom:0.3em;
+            }
+
+            .ui-message-error{
+                margin:0;
+                margin-top:0.5em;
+            }
+
+            .ui-growl{
+                width:450px;
+            }
+            .ui-growl-message{
+                width:380px;
+            }
+            .ui-growl-message pre{
+                margin:0;
+            }
+            input.ui-button {
+                padding: 1em;
+            }
+            input.ui-button:hover{
+                cursor:pointer;
+            }
+            .ui-datatable th{
+                text-align:left;
+            }
+            .recentTracksTitle{
+                font-size: 1.2em;
+            }
+
+            .ui-editable-column-options .ui-icon{
+                background-repeat: repeat;
+            }
+            .ui-editable-column-options .ui-icon-pencil{
+
+                background-image: url("#{facesContext.externalContext.request.contextPath}/resources/images/pencil.png");
+            }
+            .ui-editable-column-options .ui-icon-check{
+                background-image: url("#{facesContext.externalContext.request.contextPath}/resources/images/check.png");
+                /*  background-image: url(../images/check.png) */
+            }
+            .ui-editable-column-options .ui-icon-close{
+                margin-left:0.5em;
+                background-image: url("#{facesContext.externalContext.request.contextPath}/resources/images/close.png");
+            }
+            .ui-editable-column-options .ui-icon-remove{
+                float:left;
+                margin-left:0.5em;
+                background-image: url("#{facesContext.externalContext.request.contextPath}/resources/images/remove.png");
+            }
+
+            a{
+                color: #123456;
+                text-decoration: none;
+            }
+            a:hover{
+                color:#60BE3A;
+            }
+            .middleColumns{
+                width:48%;
+                vertical-align: top;
+            }
+            .shortColumn{
+                width:25%;
+                vertical-align: top;
+            }
+            .ui-datepicker-trigger{
+                margin-left: 0.5em;
+            }
+            .hasDatepicker{
+                width:100px;
+            }
+            .h2{
+                font-size: 2em;
+                font-weight:boler;
+            }
+            .h3{
+                font-size: 1.5em;
+                font-weight:boler;
+            }
+            .results{
+                font-size:1.1em;
+            }
+            .chart{
+                width:100%;
+            }
+
+        </style>
+
+    </h:head>
+
+
+<p:dialog header="Agregar Diccionario" modal="true" showEffect="fade"
+          hideEffect="fade" widgetVar="AddDiccionarioDialogWidget" width="40%"
+          position="top" appendTo="@(body)" draggable="false"
+          resizable="true" id="AddDiccionarioDialog">
+    <h:form id="AddDiccionario-form">
+
+
+        <p:messages id="msgs-dialog-dicc-form" />
+        <p:defaultCommand target="guardar-button-diccionario-fmr" scope="AddDiccionarioDialog" />
+
+        <h:panelGrid columns="3" id="panel-dialog-diccionario-form">
+        <p:outputLabel value="Diccionario" for="dlg-diccionario-nombre" />
+        <p:inputText id="dlg-diccionario-nombre" maxlength="50"
+                     value="#{configBean.diccinarioAlphEdicion.codDescripcion}" />
+
+
+
+        <p:commandButton value="Guardar" id="guardar-button-diccionario-fmr"
+                         action="#{configBean.guardarNuevoRegistroDiccionario}"
+                         process="AddDiccionarioDialog" update=":AddDiccionario-form diccionarioTable" />
+            </h:panelGrid>
+
+        <p:dataTable id="diccionarioTable" value="#{configBean.cmbDiccionario}" var="diccionario"
+                     style="margin-top: 20px" emptyMessage="Nenhum produto encontrado." rows="10"
+                     selection="#{configBean.selectedDiccionario}"
+                     selectionMode="single"
+                     paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom"
+                     rowKey="#{diccionario.id}"
+                     editable="true"
+
+        >
+            <p:ajax event="cellEdit" listener="#{configBean.onCellEditDiccionarioDialog}"
+                    update=":AddDiccionario-form:diccionarioTable,:AddDiccionario-form:msgs-dialog-dicc-form"
+                    oncomplete="onCellEditTableComplete()"/>
+
+            <p:column headerText="Id" style="text-align: center; width: 100px">
+            <h:outputText value="#{diccionario.id}" />
+        </p:column>
+
+        <p:column headerText="Descripcion" style="text-align: center; width: 100px">
+            <p:cellEditor>
+            <f:facet name="output">
+                <h:outputText value="#{diccionario.codDescripcion}" />
+            </f:facet>
+
+            <f:facet name="input">
+                <p:inputText value="#{diccionario.codDescripcion}" />
+            </f:facet>
+            </p:cellEditor>
+           </p:column>
+
+            <p:column headerText="Acciones" style="text-align: center; width: 100px" styleClass="ui-editable-column-options" >
+                <p:rowEditor/>
+                <p:commandLink oncomplete="PF('confirmDeleteDiccionario').show();" >
+                    <span class="ui-icon ui-icon-remove"></span>
+                </p:commandLink>
+            </p:column>
+
+   </p:dataTable>
+
+        <p:commandButton value="Cerrar" id="cerrar-button-diccionario-fmr"
+                         process="AddDiccionarioDialog"  oncomplete="PF('AddDiccionarioDialogWidget').hide()"  />
+
+</h:form>
+</p:dialog>
+<h:form id="confirm-delete-diccionario-form">
+    <p:confirmDialog id="confirmDiccionarioDeleteDialog" message="Esta apunto de eliminar un registro de la tabla.¿Confirmar operacion?"
+                     header="Alerta - Confirmar operacion." severity="alert"
+                     widgetVar="confirmDeleteDiccionario" modal="true">
+        <p:commandButton value="Si" actionListener="#{configBean.removeDiccionarioTabla}"
+                         update=":AddDiccionario-form:diccionarioTable" oncomplete="PF('confirmDeleteDiccionario').hide();" />
+        <p:commandButton value="No" oncomplete="PF('confirmDeleteDiccionario').hide()" />
+    </p:confirmDialog>
+</h:form>
+        </h:body>
+        </html>
