@@ -262,7 +262,7 @@ public class ConfigBean implements Serializable{
 	}
 
 
-	public void onCellEdit(CellEditEvent event) {
+	public void onCellEditDiccionarioDialog(CellEditEvent event) {
 
 
 		this.selectedDiccionario = this.cmbDiccionario.get(event.getRowIndex());
@@ -276,6 +276,10 @@ public class ConfigBean implements Serializable{
 
 	}
 
+	public void onRowEditDiccionarioDialog(RowEditEvent event) {
+		FacesMessage msg = new FacesMessage("Diccionario Edited", ((DiccionarioAlph) event.getObject()).getId().toString());
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 
 
 	public void removeDiccionarioTabla(ActionEvent event) {

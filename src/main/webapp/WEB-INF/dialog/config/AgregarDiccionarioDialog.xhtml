@@ -204,9 +204,10 @@
                      editable="true"
 
         >
-            <p:ajax event="cellEdit" listener="#{configBean.onCellEditDiccionarioDialog}"
-                    update=":AddDiccionario-form:diccionarioTable,:AddDiccionario-form:msgs-dialog-dicc-form"
-                    oncomplete="onCellEditTableComplete()"/>
+            <p:ajax event="rowEdit" listener="#{configBean.onRowEditDiccionarioDialog}"
+                    update=":AddDiccionario-form:diccionarioTable,:AddDiccionario-form:msgs-dialog-dicc-form" />
+
+
 
             <p:column headerText="Id" style="text-align: center; width: 100px">
             <h:outputText value="#{diccionario.id}" />
