@@ -95,10 +95,41 @@ public class ProductoDiccionarioRepository implements Serializable {
 
     public void guardar2(ProductoDiccionario productoDiccionario)
     {
-
-
-
         manager.persist(productoDiccionario);
+    }
+
+
+    public String remover(ProductoDiccionario productoDiccionario)
+    {
+        String salida="";
+        try{
+            StoredProcedureQuery query = this.manager.createStoredProcedureQuery("LC_BorrarProductoDiccionario");
+            query.registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN);
+            query.registerStoredProcedureParameter(2, Integer.class, ParameterMode.IN);
+
+
+            query.setParameter(1, productoDiccionario.getProductoDiccionarioPK().getFkProducto());
+            query.setParameter(2, productoDiccionario.getProductoDiccionarioPK().getFkDiccionario());
+
+
+            if (query.execute())
+            {
+
+                salida = query.getSingleResult().toString();
+
+            }
+
+
+        }
+        catch (GenericJDBCException |SecurityException | IllegalStateException  e)
+        {
+
+            JOptionPane.showMessageDialog(null, "ERROR AL REGISTRAR" + e, "ERROR", JOptionPane.WARNING_MESSAGE);
+
+            e.printStackTrace();
+        }
+
+        return salida;
 
     }
 

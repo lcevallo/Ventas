@@ -32,5 +32,11 @@ public class RegistroProductoDiccionario implements Serializable{
 
     }
 
+    @Transacional
+    public String borrarRegistro(ProductoDiccionario productoDiccionario)
+    {
+
+        return productoDiccionarioRepository.remover(productoDiccionario);
+    }
 
 }

@@ -91,7 +91,8 @@
                                                   -->
                  </p:commandButton>
 
-                 <p:commandButton icon="ui-icon-trash" title="Eliminar"
+                 <p:commandButton icon="ui-icon-trash" title="Eliminar" process="@this"
+                                  action="#{configBean.removeProductoDiccionario}" update="tableProductoDiccionario msgs toolbarConfig"
                                   disabled="#{configBean.tmpProductoDiccionarioSelected == null}" />
 
                  <p:commandButton icon="ui-icon-arrowthick-1-s" title="Exportar para XLS" />

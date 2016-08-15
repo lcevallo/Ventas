@@ -293,6 +293,22 @@ public class ConfigBean implements Serializable{
         this.selectedDiccionario=null;
 	}
 
+    public void removeProductoDiccionario(ActionEvent anEvent)
+    {
+
+        ProductoDiccionario productoDiccionario= new ProductoDiccionario(this.tmpProductoDiccionarioSelected.getRecid(),this.tmpProductoDiccionarioSelected.getFkDiccionario());
+        this.registroProductoDiccionario.borrarRegistro(productoDiccionario);
+
+
+        this.tblTmpProductoDiccionario.remove(this.tmpProductoDiccionarioSelected);
+        FacesUtil.addInfoMessage("Relacion producto: "+this.tmpProductoDiccionarioSelected.getProducto()+"  diccionario: "+ this.tmpProductoDiccionarioSelected.getCodDescripcion()+" eliminados con exito!..");
+
+
+        this.tmpProductoDiccionarioSelected=null;
+
+
+    }
+
 
 
 	public List<Cadena> getCmbCadenas() {
