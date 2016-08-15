@@ -77,4 +77,12 @@
 <ui:include src="/WEB-INF/dialog/config/AgregarProductoCadenaDialog.xhtml"/>
 <ui:include src="/WEB-INF/dialog/config/AgregarDiccionarioDialog.xhtml"/>
 
+<h:form>
+    <p:confirmDialog global="true">
+        <p:commandButton value="Si" type="button"  styleClass="ui-confirm-dialog-yes" icon="ui-icon-check" />
+
+        <p:commandButton value="No" type="button" styleClass="ui-confirm-dialog-no" icon="ui-icon-close"/>
+    </p:confirmDialog>
+</h:form>
+
 </html>

@@ -93,7 +93,9 @@
 
                  <p:commandButton icon="ui-icon-trash" title="Eliminar" process="@this"
                                   action="#{configBean.removeProductoDiccionario}" update="tableProductoDiccionario msgs toolbarConfig"
-                                  disabled="#{configBean.tmpProductoDiccionarioSelected == null}" />
+                                  disabled="#{configBean.tmpProductoDiccionarioSelected == null}" >
+                         <p:confirm icon="ui-icon-alert" header="Confrimacion de eliminacion" message="Esta seguro de eliminar esta relacion?" />
+                         </p:commandButton>
 
                  <p:commandButton icon="ui-icon-arrowthick-1-s" title="Exportar para XLS" />
              </f:facet>
