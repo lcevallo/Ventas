@@ -1,9 +1,11 @@
 package com.alphacell.repository;
 
 import com.alphacell.model.DiccionarioAlph;
+import com.alphacell.service.NegocioException;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import java.io.Serializable;
 import java.util.List;
@@ -26,16 +28,36 @@ public class DiccionarioRepository implements Serializable {
 
     public DiccionarioAlph findById(Integer id) {
         Query query = manager.createNamedQuery("DiccionarioAlph.findById");
-        query.setParameter("id",id);
-        return (DiccionarioAlph)query.getSingleResult();
+        query.setParameter("id", id);
+        return (DiccionarioAlph) query.getSingleResult();
     }
 
     public DiccionarioAlph findByNombre(String nombre) {
         Query query = manager.createNamedQuery("DiccionarioAlph.findByCodDescripcion");
-        query.setParameter("codDescripcion",nombre);
+        query.setParameter("codDescripcion", nombre);
 
-        return (DiccionarioAlph)query.getSingleResult();
+        return (DiccionarioAlph) query.getSingleResult();
     }
+
+    public DiccionarioAlph guardar(DiccionarioAlph diccionarioAlphPersistencia)
+    {
+        return manager.merge(diccionarioAlphPersistencia);
+
+    }
+
+    public void remover(DiccionarioAlph diccionario)
+    {
+        try {
+            diccionario = findById(diccionario.getId());
+            manager.remove(diccionario);
+            manager.flush();
+        } catch (PersistenceException e) {
+            throw new NegocioException("Diccionario no pudo ser eliminado.");
+        }
+
+    }
+
+
 
 
 }

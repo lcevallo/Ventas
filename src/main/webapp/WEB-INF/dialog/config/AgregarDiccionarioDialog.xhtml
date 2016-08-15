@@ -192,7 +192,7 @@
 
         <p:commandButton value="Guardar" id="guardar-button-diccionario-fmr"
                          action="#{configBean.guardarNuevoRegistroDiccionario}"
-                         process="AddDiccionarioDialog" update=":AddDiccionario-form diccionarioTable" />
+                         process="AddDiccionarioDialog" update=":AddDiccionario-form:diccionarioTable" />
             </h:panelGrid>
 
         <p:dataTable id="diccionarioTable" value="#{configBean.cmbDiccionario}" var="diccionario"
@@ -201,9 +201,9 @@
                      selectionMode="single"
                      paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom"
                      rowKey="#{diccionario.id}"
-                     editable="true"
+                     editable="true" >
 
-        >
+
             <p:ajax event="rowEdit" listener="#{configBean.onRowEditDiccionarioDialog}"
                     update=":AddDiccionario-form:diccionarioTable,:AddDiccionario-form:msgs-dialog-dicc-form" />
 
@@ -227,8 +227,11 @@
 
             <p:column headerText="Acciones" style="text-align: center; width: 100px" styleClass="ui-editable-column-options" >
                 <p:rowEditor/>
-                <p:commandLink oncomplete="PF('confirmDeleteDiccionario').show();" >
+                <p:commandLink oncomplete="PF('confirmDeleteDiccionario').show();" update=":confirm-delete-diccionario-form:confirmDiccionarioDeleteDialog">
                     <span class="ui-icon ui-icon-remove"></span>
+                    <f:setPropertyActionListener
+                            target="#{configBean.selectedDiccionario}"
+                            value="#{diccionario}" />
                 </p:commandLink>
             </p:column>
 
@@ -236,17 +239,20 @@
 
         <p:commandButton value="Cerrar" id="cerrar-button-diccionario-fmr"
                          process="AddDiccionarioDialog"  oncomplete="PF('AddDiccionarioDialogWidget').hide()"  />
+</h:form>
 
-</h:form>
 </p:dialog>
-<h:form id="confirm-delete-diccionario-form">
-    <p:confirmDialog id="confirmDiccionarioDeleteDialog" message="Esta apunto de eliminar un registro de la tabla.¿Confirmar operacion?"
-                     header="Alerta - Confirmar operacion." severity="alert"
-                     widgetVar="confirmDeleteDiccionario" modal="true">
-        <p:commandButton value="Si" actionListener="#{configBean.removeDiccionarioTabla}"
-                         update=":AddDiccionario-form:diccionarioTable" oncomplete="PF('confirmDeleteDiccionario').hide();" />
-        <p:commandButton value="No" oncomplete="PF('confirmDeleteDiccionario').hide()" />
-    </p:confirmDialog>
-</h:form>
+
+    <h:form id="confirm-delete-diccionario-form">
+        <p:confirmDialog id="confirmDiccionarioDeleteDialog" message="Esta apunto de eliminar un registro #{configBean.selectedDiccionario.codDescripcion}  ¿Confirmar operacion?"
+                         header="Alerta - Confirmar operacion." severity="alert"
+                         widgetVar="confirmDeleteDiccionario" >
+            <p:commandButton value="Si" actionListener="#{configBean.removeDiccionarioTabla}"
+                             update=":AddDiccionario-form:diccionarioTable" oncomplete="PF('confirmDeleteDiccionario').hide();" />
+            <p:commandButton value="No" onclick="confirmDeleteDiccionario.hide(); return false;" />
+        </p:confirmDialog>
+    </h:form>
+
+
         </h:body>
         </html>

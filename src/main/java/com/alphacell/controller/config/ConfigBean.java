@@ -48,7 +48,7 @@ public class ConfigBean implements Serializable{
 
 
 	private List<DiccionarioAlph> cmbDiccionario;
-	private DiccionarioAlph selectedDiccionario;
+	private DiccionarioAlph selectedDiccionario= new DiccionarioAlph();
 
 
 	private List<CadenaProducto> cmbCadenaProducto;
@@ -172,7 +172,10 @@ public class ConfigBean implements Serializable{
 
     public void guardarNuevoRegistroDiccionario()
     {
+
        this.registroDiccionario.guardarRegistro(this.diccinarioAlphEdicion);
+       this.cmbDiccionario.clear();
+       this.cmbDiccionario=this.diccionarioRepository.findAll();
 
     }
 
@@ -282,9 +285,12 @@ public class ConfigBean implements Serializable{
 	}
 
 
-	public void removeDiccionarioTabla(ActionEvent event) {
-		//TODO:Aqui debo de efectuar la accion de remover de la base de datos
-		//computers.remove(computerSelected);
+	public void removeDiccionarioTabla(ActionEvent anEvent) {
+
+        this.registroDiccionario.remover(this.selectedDiccionario);
+        this.cmbDiccionario.remove(this.selectedDiccionario);
+        FacesUtil.addInfoMessage("Diccionario  "+ this.selectedDiccionario.getCodDescripcion()+ " eliminado con exito!");
+        this.selectedDiccionario=null;
 	}
 
 

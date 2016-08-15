@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "DICCIONARIO_ALPH")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "DiccionarioAlph.findAll", query = "SELECT d FROM DiccionarioAlph d"),
+    @NamedQuery(name = "DiccionarioAlph.findAll", query = "SELECT d FROM DiccionarioAlph d order by d.id "),
     @NamedQuery(name = "DiccionarioAlph.findById", query = "SELECT d FROM DiccionarioAlph d WHERE d.id = :id"),
     @NamedQuery(name = "DiccionarioAlph.findByCodDescripcion", query = "SELECT d FROM DiccionarioAlph d WHERE d.codDescripcion = :codDescripcion")})
 public class DiccionarioAlph implements Serializable {

@@ -33,9 +33,5 @@ public class OperadorRepository implements Serializable{
         return (Operador)query.getSingleResult();
     }
 
-    public DiccionarioAlph guardar(DiccionarioAlph diccionarioAlphPersistencia)
-    {
-        return manager.merge(diccionarioAlphPersistencia);
 
-     }
 }
