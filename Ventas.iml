@@ -22,7 +22,7 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="Ventas" />
-          <factory-entry name="VentasPU" />
+          <factory-entry name="VentasPU" value="d7b9b7f5-7ccc-4e71-8e95-727d029d655f" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>

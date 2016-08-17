@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2808020786">
+    <data-source source="LOCAL" name="SQL Server (Microsoft) - Ventas@192.168.10.21" uuid="d7b9b7f5-7ccc-4e71-8e95-727d029d655f">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://192.168.10.21\MSSQLSERVER:1433;databaseName=Ventas</jdbc-url>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="SQL Server (Microsoft) - Ventas@192.168.10.21" uuid="d7b9b7f5-7ccc-4e71-8e95-727d029d655f">
+      <secret-storage>memory</secret-storage>
+      <user-name>sa</user-name>
+      <schema-pattern>Ventas.*</schema-pattern>
+      <default-schemas>Ventas.*</default-schemas>
+    </data-source>
+  </component>
+</project>

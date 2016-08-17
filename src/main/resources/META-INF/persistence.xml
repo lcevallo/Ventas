@@ -8,6 +8,7 @@
     <class>com.alphacell.model.DiccionarioAlph</class>
     <class>com.alphacell.model.CadenaProducto</class>
     <class>com.alphacell.model.Operador</class>
+    <class>com.alphacell.model.ExcelDatos</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://192.168.10.21\MSSQLSERVER:1433;databaseName=Ventas"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>

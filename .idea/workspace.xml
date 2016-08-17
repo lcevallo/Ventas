@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a317083e-c3e8-4b4e-bc75-6cc7fe6be9de" name="Default" comment="Version 1">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/cargaDatos.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ventas.iml" afterPath="$PROJECT_DIR$/Ventas.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alphacell/controller/config/ConfigBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/alphacell/controller/config/ConfigBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template/LayoutMaestro.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/template/LayoutMaestro.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/config/configuracion.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/config/configuracion.xhtml" />
     </list>
@@ -24,6 +29,13 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Ventas" />
@@ -35,99 +47,9 @@
           <file leaf-file-name="ConfigBean.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/controller/config/ConfigBean.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="301" column="0" selection-start-line="301" selection-start-column="0" selection-end-line="301" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#3806#3807#0" expanded="false" />
-                    <element signature="e#3845#3846#0" expanded="false" />
-                    <element signature="e#4186#4187#0" expanded="false" />
-                    <element signature="e#4241#4242#0" expanded="false" />
-                    <element signature="e#9257#9258#0" expanded="false" />
-                    <element signature="e#9281#9282#0" expanded="false" />
-                    <element signature="e#9336#9337#0" expanded="false" />
-                    <element signature="e#9371#9372#0" expanded="false" />
-                    <element signature="e#9409#9410#0" expanded="false" />
-                    <element signature="e#9437#9438#0" expanded="false" />
-                    <element signature="e#9494#9495#0" expanded="false" />
-                    <element signature="e#9537#9538#0" expanded="false" />
-                    <element signature="e#9608#9609#0" expanded="false" />
-                    <element signature="e#9647#9648#0" expanded="false" />
-                    <element signature="e#9866#9867#0" expanded="false" />
-                    <element signature="e#9894#9895#0" expanded="false" />
-                    <element signature="e#9966#9967#0" expanded="false" />
-                    <element signature="e#10009#10010#0" expanded="false" />
-                    <element signature="e#10061#10062#0" expanded="false" />
-                    <element signature="e#10094#10095#0" expanded="false" />
-                    <element signature="e#10293#10294#0" expanded="false" />
-                    <element signature="e#10337#10338#0" expanded="false" />
-                    <element signature="e#10572#10573#0" expanded="false" />
-                    <element signature="e#10603#10604#0" expanded="false" />
-                    <element signature="e#10783#10784#0" expanded="false" />
-                    <element signature="e#10819#10820#0" expanded="false" />
-                    <element signature="e#11022#11023#0" expanded="false" />
-                    <element signature="e#11062#11063#0" expanded="false" />
-                    <element signature="e#11292#11293#0" expanded="false" />
-                    <element signature="e#11335#11336#0" expanded="false" />
-                    <element signature="e#11551#11552#0" expanded="false" />
-                    <element signature="e#11580#11581#0" expanded="false" />
-                    <element signature="e#11640#11641#0" expanded="false" />
-                    <element signature="e#11685#11686#0" expanded="false" />
-                    <element signature="e#11723#11724#0" expanded="false" />
-                    <element signature="e#11750#11751#0" expanded="false" />
-                    <element signature="e#11787#11788#0" expanded="false" />
-                    <element signature="e#11814#11815#0" expanded="false" />
-                    <element signature="e#11869#11870#0" expanded="false" />
-                    <element signature="e#11910#11911#0" expanded="false" />
-                    <element signature="e#11964#11965#0" expanded="false" />
-                    <element signature="e#11999#12000#0" expanded="false" />
-                    <element signature="e#12194#12195#0" expanded="false" />
-                    <element signature="e#12242#12243#0" expanded="false" />
-                    <element signature="e#12467#12468#0" expanded="false" />
-                    <element signature="e#12493#12494#0" expanded="false" />
-                    <element signature="e#12554#12555#0" expanded="false" />
-                    <element signature="e#12593#12594#0" expanded="false" />
-                    <element signature="e#12636#12637#0" expanded="false" />
-                    <element signature="e#12667#12668#0" expanded="false" />
-                    <element signature="e#12732#12733#0" expanded="false" />
-                    <element signature="e#12781#12782#0" expanded="false" />
-                    <element signature="e#12838#12839#0" expanded="false" />
-                    <element signature="e#12882#12883#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DiccionarioRepository.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/repository/DiccionarioRepository.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="284">
-                  <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+                <state relative-caret-position="134">
+                  <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DiccionarioAlph.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/model/DiccionarioAlph.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="29" column="68" selection-start-line="29" selection-start-column="68" selection-end-line="29" selection-end-column="68" />
-                  <folding>
-                    <element signature="e#0#2680#0" expanded="false" />
-                    <element signature="imports" expanded="false" />
-                    <element signature="e#1610#1611#0" expanded="false" />
-                    <element signature="e#1638#1639#0" expanded="false" />
-                    <element signature="e#1668#1669#0" expanded="false" />
-                    <element signature="e#1693#1694#0" expanded="false" />
-                    <element signature="e#1730#1731#0" expanded="false" />
-                    <element signature="e#1758#1759#0" expanded="false" />
-                    <element signature="e#1799#1800#0" expanded="false" />
-                    <element signature="e#1836#1837#0" expanded="false" />
-                    <element signature="e#1896#1897#0" expanded="false" />
-                    <element signature="e#1948#1949#0" expanded="false" />
-                    <element signature="e#2594#2595#0" expanded="false" />
-                    <element signature="e#2671#2672#0" expanded="false" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -135,53 +57,47 @@
           <file leaf-file-name="configuracion.xhtml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/config/configuracion.xhtml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="246">
-                  <caret line="96" column="141" selection-start-line="96" selection-start-column="141" selection-end-line="96" selection-end-column="141" />
+                <state relative-caret-position="165">
+                  <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LayoutMaestro.xhtml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/template/LayoutMaestro.xhtml">
+          <file leaf-file-name="cargaDatos.xhtml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/cargaDatos.xhtml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="110">
-                  <caret line="75" column="68" selection-start-line="75" selection-start-column="68" selection-end-line="75" selection-end-column="68" />
+                <state relative-caret-position="120">
+                  <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="RegistroProductoDiccionario.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/service/RegistroProductoDiccionario.java">
+          <file leaf-file-name="CargarDatosBean.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/controller/CargarDatosBean.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="164">
-                  <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+                <state relative-caret-position="345">
+                  <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
                   <folding>
-                    <element signature="imports" expanded="false" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#725#726#0" expanded="true" />
+                    <element signature="e#758#759#0" expanded="true" />
+                    <element signature="e#816#817#0" expanded="true" />
+                    <element signature="e#860#861#0" expanded="true" />
+                    <element signature="e#901#902#0" expanded="true" />
+                    <element signature="e#938#939#0" expanded="true" />
+                    <element signature="e#998#999#0" expanded="true" />
+                    <element signature="e#1050#1051#0" expanded="true" />
+                    <element signature="e#1090#1091#0" expanded="true" />
+                    <element signature="e#1128#1129#0" expanded="true" />
+                    <element signature="e#1188#1189#0" expanded="true" />
+                    <element signature="e#1242#1243#0" expanded="true" />
+                    <element signature="e#1277#1278#0" expanded="true" />
+                    <element signature="e#1310#1311#0" expanded="true" />
+                    <element signature="e#1360#1361#0" expanded="true" />
+                    <element signature="e#1404#1405#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ProductoDiccionarioRepository.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/repository/ProductoDiccionarioRepository.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="689">
-                  <caret line="131" column="22" selection-start-line="131" selection-start-column="22" selection-end-line="131" selection-end-column="22" />
-                  <folding>
-                    <element signature="imports" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AgregarProductoCadenaDialog.xhtml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dialog/config/AgregarProductoCadenaDialog.xhtml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -190,67 +106,12 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="AgregarDiccionarioDialog.xhtml" pinned="false" current-in-tab="false">
+          <file leaf-file-name="AgregarDiccionarioDialog.xhtml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dialog/config/AgregarDiccionarioDialog.xhtml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="125">
-                  <caret line="246" column="31" selection-start-line="246" selection-start-column="31" selection-end-line="246" selection-end-column="31" />
-                  <folding>
-                    <marker date="1471285896000" expanded="true" signature="211:8666" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="453:8650" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="466:4730" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="560:4715" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="579:772" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="797:880" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="901:947" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="972:1045" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="1071:1209" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="1235:1279" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="1310:1504" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="1538:1616" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="1638:1746" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="1778:1859" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="1893:1937" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="1966:2009" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2043:2160" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2191:2266" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2289:2333" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2363:2407" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2441:2482" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2511:2556" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2590:2637" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2666:2714" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2745:2794" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2844:2902" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="2958:3096" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="3151:3353" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="3408:3579" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="3635:3835" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="3850:3936" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="3956:4002" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="4029:4108" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="4133:4212" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="4247:4298" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="4325:4369" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="4385:4467" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="4483:4567" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="4588:4636" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="4655:4698" ph="{...}" />
-                    <marker date="1471285896000" expanded="true" signature="4803:7889" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="5035:7876" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="5395:5477" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="5870:7676" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="6352:6464" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="6547:6622" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="6708:7045" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="6735:7022" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="6771:6865" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="6901:6994" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="7172:7657" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="7476:7600" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="7753:7866" ph="..." />
-                    <marker date="1471285896000" expanded="true" signature="8120:8616" ph="..." />
-                  </folding>
+                <state relative-caret-position="156">
+                  <caret line="252" column="26" selection-start-line="252" selection-start-column="26" selection-end-line="252" selection-end-column="26" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -265,11 +126,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ProductoDiccionario.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ProductoDiccionario.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/model/ProductoDiccionario.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="89">
-                  <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+                <state relative-caret-position="59">
+                  <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -319,8 +180,8 @@
         <option value="facelets" />
         <option value="CSS File" />
         <option value="Interface" />
-        <option value="jsf" />
         <option value="Class" />
+        <option value="jsf" />
       </list>
     </option>
   </component>
@@ -369,9 +230,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/alphacell/service/RegistroDiccionario.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alphacell/service/RegistroProductoDiccionario.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alphacell/repository/ProductoDiccionarioRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/alphacell/controller/config/ConfigBean.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/template/LayoutMaestro.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/config/configuracion.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alphacell/controller/config/ConfigBean.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/cargaDatos.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alphacell/controller/CargarDatosBean.java" />
       </list>
     </option>
   </component>
@@ -548,18 +411,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -576,6 +427,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphacell" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -600,6 +459,14 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alphacell" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -618,13 +485,19 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="SQL Server (Microsoft)" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="d7b9b7f5-7ccc-4e71-8e95-727d029d655f" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF/services" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.alphacell.model" />
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.VentasServer">
@@ -1171,7 +1044,7 @@
       <workItem from="1470939051630" duration="1373000" />
       <workItem from="1470940471174" duration="823000" />
       <workItem from="1470941332753" duration="16050000" />
-      <workItem from="1471269970845" duration="21665000" />
+      <workItem from="1471269970845" duration="42968000" />
     </task>
     <task id="LOCAL-00001" summary="Version 1">
       <created>1466450380941</created>
@@ -1184,7 +1057,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252291000" />
+    <option name="totallyTimeSpent" value="273594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="875" extended-state="0" />
@@ -1197,12 +1070,12 @@
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1933667" sideWeight="0.6177606" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1933667" sideWeight="0.6177606" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="-1" y="0" width="1602" height="875" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="0" y="0" width="1600" height="875" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939634" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1211,7 +1084,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31402832" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="0" y="233" width="1600" height="369" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2712585" sideWeight="0.5067437" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1933667" sideWeight="0.6177606" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1933667" sideWeight="0.38223937" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -1242,18 +1115,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/alphacell/service/RegistroCadenaProducto.java</url>
-          <line>23</line>
-          <properties />
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="54" />
+      <option name="time" value="56" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1262,27 +1127,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/util/cdi/ViewContextExtension.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/util/cdi/CDIServiceLocator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/util/cdi/ViewScopedContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/services/javax.enterprise.inject.spi.Extension">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1589,82 +1433,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/service/RegistroCadenaProducto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/repository/CadenaProductoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dialog/config/AgregarDiccionarioDialog.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="246" column="31" selection-start-line="246" selection-start-column="31" selection-end-line="246" selection-end-column="31" />
-          <folding>
-            <marker date="1471285896000" expanded="true" signature="211:8666" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="453:8650" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="466:4730" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="560:4715" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="579:772" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="797:880" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="901:947" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="972:1045" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="1071:1209" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="1235:1279" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="1310:1504" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="1538:1616" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="1638:1746" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="1778:1859" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="1893:1937" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="1966:2009" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2043:2160" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2191:2266" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2289:2333" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2363:2407" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2441:2482" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2511:2556" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2590:2637" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2666:2714" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2745:2794" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2844:2902" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="2958:3096" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="3151:3353" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="3408:3579" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="3635:3835" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="3850:3936" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="3956:4002" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="4029:4108" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="4133:4212" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="4247:4298" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="4325:4369" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="4385:4467" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="4483:4567" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="4588:4636" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="4655:4698" ph="{...}" />
-            <marker date="1471285896000" expanded="true" signature="4803:7889" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="5035:7876" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="5395:5477" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="5870:7676" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="6352:6464" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="6547:6622" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="6708:7045" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="6735:7022" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="6771:6865" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="6901:6994" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="7172:7657" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="7476:7600" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="7753:7866" ph="..." />
-            <marker date="1471285896000" expanded="true" signature="8120:8616" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1676,13 +1449,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/repository/ProductoDiccionarioRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/model/ProductoDiccionario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="131" column="22" selection-start-line="131" selection-start-column="22" selection-end-line="131" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state relative-caret-position="59">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dialog/config/AgregarDiccionarioDialog.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="252" column="26" selection-start-line="252" selection-start-column="26" selection-end-line="252" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/controller/config/ConfigBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d7b9b7f5-7ccc-4e71-8e95-727d029d655f/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/template/LayoutMaestro.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1690,103 +1493,74 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/repository/ProductoDiccionarioRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="131" column="22" selection-start-line="131" selection-start-column="22" selection-end-line="131" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/controller/CargarDatosBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#758#759#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
+            <element signature="e#860#861#0" expanded="true" />
+            <element signature="e#901#902#0" expanded="true" />
+            <element signature="e#938#939#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
+            <element signature="e#1090#1091#0" expanded="true" />
+            <element signature="e#1128#1129#0" expanded="true" />
+            <element signature="e#1188#1189#0" expanded="true" />
+            <element signature="e#1242#1243#0" expanded="true" />
+            <element signature="e#1277#1278#0" expanded="true" />
+            <element signature="e#1310#1311#0" expanded="true" />
+            <element signature="e#1360#1361#0" expanded="true" />
+            <element signature="e#1404#1405#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/model/ProductoDiccionario.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/cargaDatos.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        <state relative-caret-position="120">
+          <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/repository/DiccionarioRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
+        <state relative-caret-position="194">
           <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/controller/config/ConfigBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="301" column="0" selection-start-line="301" selection-start-column="0" selection-end-line="301" selection-end-column="0" />
           <folding>
-            <element signature="e#3806#3807#0" expanded="false" />
-            <element signature="e#3845#3846#0" expanded="false" />
-            <element signature="e#4186#4187#0" expanded="false" />
-            <element signature="e#4241#4242#0" expanded="false" />
-            <element signature="e#9257#9258#0" expanded="false" />
-            <element signature="e#9281#9282#0" expanded="false" />
-            <element signature="e#9336#9337#0" expanded="false" />
-            <element signature="e#9371#9372#0" expanded="false" />
-            <element signature="e#9409#9410#0" expanded="false" />
-            <element signature="e#9437#9438#0" expanded="false" />
-            <element signature="e#9494#9495#0" expanded="false" />
-            <element signature="e#9537#9538#0" expanded="false" />
-            <element signature="e#9608#9609#0" expanded="false" />
-            <element signature="e#9647#9648#0" expanded="false" />
-            <element signature="e#9866#9867#0" expanded="false" />
-            <element signature="e#9894#9895#0" expanded="false" />
-            <element signature="e#9966#9967#0" expanded="false" />
-            <element signature="e#10009#10010#0" expanded="false" />
-            <element signature="e#10061#10062#0" expanded="false" />
-            <element signature="e#10094#10095#0" expanded="false" />
-            <element signature="e#10293#10294#0" expanded="false" />
-            <element signature="e#10337#10338#0" expanded="false" />
-            <element signature="e#10572#10573#0" expanded="false" />
-            <element signature="e#10603#10604#0" expanded="false" />
-            <element signature="e#10783#10784#0" expanded="false" />
-            <element signature="e#10819#10820#0" expanded="false" />
-            <element signature="e#11022#11023#0" expanded="false" />
-            <element signature="e#11062#11063#0" expanded="false" />
-            <element signature="e#11292#11293#0" expanded="false" />
-            <element signature="e#11335#11336#0" expanded="false" />
-            <element signature="e#11551#11552#0" expanded="false" />
-            <element signature="e#11580#11581#0" expanded="false" />
-            <element signature="e#11640#11641#0" expanded="false" />
-            <element signature="e#11685#11686#0" expanded="false" />
-            <element signature="e#11723#11724#0" expanded="false" />
-            <element signature="e#11750#11751#0" expanded="false" />
-            <element signature="e#11787#11788#0" expanded="false" />
-            <element signature="e#11814#11815#0" expanded="false" />
-            <element signature="e#11869#11870#0" expanded="false" />
-            <element signature="e#11910#11911#0" expanded="false" />
-            <element signature="e#11964#11965#0" expanded="false" />
-            <element signature="e#11999#12000#0" expanded="false" />
-            <element signature="e#12194#12195#0" expanded="false" />
-            <element signature="e#12242#12243#0" expanded="false" />
-            <element signature="e#12467#12468#0" expanded="false" />
-            <element signature="e#12493#12494#0" expanded="false" />
-            <element signature="e#12554#12555#0" expanded="false" />
-            <element signature="e#12593#12594#0" expanded="false" />
-            <element signature="e#12636#12637#0" expanded="false" />
-            <element signature="e#12667#12668#0" expanded="false" />
-            <element signature="e#12732#12733#0" expanded="false" />
-            <element signature="e#12781#12782#0" expanded="false" />
-            <element signature="e#12838#12839#0" expanded="false" />
-            <element signature="e#12882#12883#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/template/LayoutMaestro.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alphacell/service/RegistroCadenaProducto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="75" column="68" selection-start-line="75" selection-start-column="68" selection-end-line="75" selection-end-column="68" />
+        <state relative-caret-position="209">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/config/configuracion.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="96" column="141" selection-start-line="96" selection-start-column="141" selection-end-line="96" selection-end-column="141" />
+        <state relative-caret-position="165">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>

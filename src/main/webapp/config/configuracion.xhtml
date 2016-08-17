@@ -91,11 +91,12 @@
                                                   -->
                  </p:commandButton>
 
-                 <p:commandButton icon="ui-icon-trash" title="Eliminar" process="@this"
-                                  action="#{configBean.removeProductoDiccionario}" update="tableProductoDiccionario msgs toolbarConfig"
+                 <p:commandButton icon="ui-icon-trash"
+                                  title="Eliminar"
+                                  oncomplete="PF('confirmation-config').show();"
                                   disabled="#{configBean.tmpProductoDiccionarioSelected == null}" >
-                         <p:confirm icon="ui-icon-alert" header="Confrimacion de eliminacion" message="Esta seguro de eliminar esta relacion?" />
-                         </p:commandButton>
+
+                 </p:commandButton>
 
                  <p:commandButton icon="ui-icon-arrowthick-1-s" title="Exportar para XLS" />
              </f:facet>
@@ -143,6 +144,15 @@
             </p:column>
 
         </p:dataTable>
+
+         <p:confirmDialog  message="Esta Seguro?" header="Confirmacion" severity="alert" widgetVar="confirmation-config">
+             <p:commandButton value="Si"
+                              oncomplete="PF('confirmation-config').hide();"
+                              actionListener="#{configBean.removeProductoDiccionario}"
+                              update="tableProductoDiccionario msgs toolbarConfig"
+                               />
+             <p:commandButton value="No" onclick="confirmation-config.hide(); return false;" type="button" />
+         </p:confirmDialog>
 
      </h:form>
     </ui:define>
