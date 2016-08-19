@@ -8,11 +8,43 @@
 >
     <ui:define name="titulo">Carga de datos</ui:define>
     <ui:define name="cuerpo">
-        <h:form id="carga-frm">
+        <h:form enctype="multipart/form-data" id="carga-frm">
+            <p:messages id="messages-cargarDatos" showDetail="true" autoUpdate="true" closable="true" />
+
+            <p:panelGrid columns="2" >
+            <p:outputLabel for="cadenaCombo-cargarDatos" value="Cadena" />
+            <p:selectOneMenu label="Seleccione Cadenas"
+                             id="cadenaCombo-cargarDatos"
+                             value="#{cargarDatosBean.selectedCadena}"
+                             filter="true"
+                             filterMatchMode="contains"
+            >
+                <f:selectItem itemLabel="Seleccione un Canal" />
+                <f:selectItems value="#{cargarDatosBean.cmbCadenas}" var="cadenaRecord"
+                               itemValue="#{cadenaRecord}" itemLabel="#{cadenaRecord.nombre}" />
+
+            </p:selectOneMenu>
+
+            <p:outputLabel for="archivo-cargarDatos" value="Cargue el archivo de xls" />
+                <p:fileUpload id="archivo-cargarDatos" update="messages-cargarDatos"
+                              sizeLimit="1000000"
+                              fileUploadListener="#{cargarDatosBean.handleFileUpload}" mode="advanced"
+                              allowTypes="/(\.|\/)(xls)$/" />
 
 
 
 
+            <p:outputLabel for="fechaInventario-cargarDatos" value="Fecha Inventario" />
+            <p:calendar id="fechaInventario-cargarDatos" required="true" value="#{cargarDatosBean.fechaInventario}" pattern="dd/MM/yyyy" readonlyInput="true"
+                        pages="1" mode="popup" locale="es"
+            />
+
+            <p:outputLabel for="fechaVenta-cargarDatos" value="Fecha Venta" />
+            <p:calendar id="fechaVenta-cargarDatos" required="true" value="#{cargarDatosBean.fechaVenta}" pattern="dd/MM/yyyy" readonlyInput="true"
+                        pages="1" mode="popup" locale="es"
+            />
+
+            </p:panelGrid>
 
         </h:form>
 
